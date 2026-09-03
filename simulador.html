@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanEdu - Simulador de Investimentos</title>
+</head>
+<body>
+
+    <!-- ===================== TOPO ===================== -->
+    <header>
+        <p>FinanEdu</p>
+        <p>Trilha de Conhecimento</p>
+
+        <div>
+            <span>
+                <span aria-hidden="true">&#128293;</span>
+                12 dias de sequência
+            </span>
+
+            <span>
+                <span aria-hidden="true">&#128142;</span>
+                450 pontos
+            </span>
+
+            <span aria-hidden="true">&#128276;</span>
+        </div>
+
+        <div>
+            <img src="avatar-placeholder.png" alt="Foto de perfil de Lucas">
+            <span>Olá, Lucas!</span>
+        </div>
+    </header>
+
+        
+
+    
+
+    <!-- ===================== NAV LATERAL ===================== -->
+    <nav aria-label="Navegação principal">
+        <a href="#">
+            <span aria-hidden="true">&#127891;</span>
+            <strong>FinanEdu</strong>
+        </a>
+        <p>Aprenda hoje, construa seu futuro.</p>
+
+        <ul>
+            <li><a href="#inicio">
+                <span aria-hidden="true">&#8962;</span> Início
+            </a></li>
+            <li><a href="#trilhas">
+                <span aria-hidden="true">&#128218;</span> Trilhas
+            </a></li>
+            <li><a href="#simulador" aria-current="page">
+                <span aria-hidden="true">&#128203;</span> Simulador
+            </a></li>
+        </ul>
+
+        <ul>
+            <li><a href="#ajuda">
+                <span aria-hidden="true">?</span> Ajuda
+            </a></li>
+            <li><a href="#configuracoes">
+                <span aria-hidden="true">&#9881;</span> Configurações
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main id="simulador">
+
+        <span aria-hidden="true">&#9831;</span>
+        <h1>Simulador de Investimentos</h1>
+        <p>Descubra como seu dinheiro pode crescer com o tempo.</p>
+        <p>É simples, rápido e você pode testar quantas vezes quiser!</p>
+
+        <aside aria-labelledby="titulo-dica">
+            <span aria-hidden="true">&#128161;</span>
+            <h2 id="titulo-dica">Dica rápida</h2>
+            <p>Investir é guardar hoje para realizar seus sonhos amanhã.</p>
+            <p>Pequenas quantias, com constância, fazem grande diferença!</p>
+        </aside>
+
+        <!-- Formulário -->
+        <section aria-labelledby="titulo-form">
+            <h2 id="titulo-form">1. Informe seus dados</h2>
+            <p>Preencha os campos abaixo para começar a simular.</p>
+
+            <form id="investment-form">
+                <ul>
+                    <li>
+                        <span aria-hidden="true">&#128055;</span>
+                        <label for="initial-investment">Quanto você tem para investir agora?</label>
+                        <span>R$</span>
+                        <input type="number" id="initial-investment" name="initial-investment" value="1000" min="0" step="0.01">
+                    </li>
+                    <li>
+                        <span aria-hidden="true">&#128179;</span>
+                        <label for="monthly-investment">Quanto você pode investir por mês?</label>
+                        <span>R$</span>
+                        <input type="number" id="monthly-investment" name="monthly-investment" value="200" min="0" step="0.01">
+                    </li>
+                    <li>
+                        <span aria-hidden="true">%</span>
+                        <label for="annual-return">Qual rendimento médio esperado?</label>
+                        <input type="number" id="annual-return" name="annual-return" value="8" min="0" step="0.1">
+                        <span>% ao ano</span>
+                    </li>
+                    <li>
+                        <span aria-hidden="true">&#128197;</span>
+                        <label for="investment-years">Por quanto tempo pretende investir?</label>
+                        <input type="number" id="investment-years" name="investment-years" value="10" min="1">
+                        <span>anos</span>
+                    </li>
+                </ul>
+
+                <button type="submit">SIMULAR AGORA</button>
+
+                <small>
+                    * Estes valores são apenas exemplos.
+                    Resultados não garantem rentabilidade futura.
+                </small>
+            </form>
+        </section>
+
+        <!-- Resultado -->
+        <section aria-labelledby="titulo-resultado">
+            <h2 id="titulo-resultado">2. Veja o resultado</h2>
+            <p>Confira como seu investimento pode crescer ao longo do tempo.</p>
+
+            <article aria-label="Resultado da simulação">
+                <p>
+                    Valor total ao final de
+                    <strong><span id="result-years">10</span> anos</strong>
+                </p>
+                <strong id="total-value">R$ 19.611,88</strong>
+                <p>
+                    Seu dinheiro pode render
+                    <strong id="profit-value">R$ 9.611,88</strong>
+                    além do que você investiu.
+                </p>
+
+                <figure>
+                    <svg id="investment-chart" viewBox="0 0 600 250" role="img" aria-label="Gráfico de crescimento do investimento"></svg>
+                    <figcaption>
+                        <span>0</span>
+                        <span>2 anos</span>
+                        <span>4 anos</span>
+                        <span>6 anos</span>
+                        <span>8 anos</span>
+                        <span>10 anos</span>
+                    </figcaption>
+                </figure>
+
+                <dl>
+                    <dt><span aria-hidden="true">&#129689;</span> Você investiu</dt>
+                    <dd>
+                        <strong id="invested-value">R$ 13.000,00</strong>
+                        <small>Total de aportes incluindo valor inicial</small>
+                    </dd>
+
+                    <dt><span aria-hidden="true">&#128200;</span> Rendimento</dt>
+                    <dd>
+                        <strong id="earnings-value">R$ 9.611,88</strong>
+                        <small>Valor que seu dinheiro pode render</small>
+                    </dd>
+
+                    <dt><span aria-hidden="true">&#128176;</span> Total acumulado</dt>
+                    <dd>
+                        <strong id="accumulated-value">R$ 19.611,88</strong>
+                        <small>Valor final após <span id="summary-years">10</span> anos</small>
+                    </dd>
+                </dl>
+            </article>
+
+            <details open>
+                <summary>
+                    <span aria-hidden="true">?</span>
+                    Entendendo o resultado
+                </summary>
+                <p>O rendimento acontece porque seus ganhos também geram novos ganhos.</p>
+                <p>Esse efeito se chama juros compostos, e é ele que faz seu dinheiro crescer mais!</p>
+            </details>
+        </section>
+
+        <!-- Guia para iniciantes -->
+        <section aria-labelledby="titulo-guia">
+            <h2 id="titulo-guia">Ainda está começando? Tudo bem!</h2>
+            <p>Veja um exemplo simples de como funciona.</p>
+
+            <ol>
+                <li>
+                    <span aria-hidden="true">&#129689;</span>
+                    <h3>Você investe</h3>
+                    <p>Você aplica um valor inicial e continua investindo todo mês.</p>
+                </li>
+                <li>
+                    <span aria-hidden="true">&#128200;</span>
+                    <h3>Seu dinheiro cresce</h3>
+                    <p>Com o tempo, seu investimento gera rendimentos.</p>
+                </li>
+                <li>
+                    <span aria-hidden="true">&#8635;</span>
+                    <h3>Rendimentos geram rendimentos</h3>
+                    <p>Os juros compostos fazem seu dinheiro crescer ainda mais.</p>
+                </li>
+                <li>
+                    <span aria-hidden="true">&#9873;</span>
+                    <h3>Você realiza seus objetivos</h3>
+                    <p>Mais tempo e consistência te aproximam dos seus sonhos!</p>
+                </li>
+            </ol>
+        </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <p>&copy; 2024 FinanEdu. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
