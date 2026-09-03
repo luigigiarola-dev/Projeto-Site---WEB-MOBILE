@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanEdu - Início</title>
+</head>
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <header>
+        <p>Início</p>
+
+        <div>
+            <span>
+                <span aria-hidden="true">&#128293;</span>
+                12 dias de sequência
+            </span>
+
+            <span>
+                <span aria-hidden="true">&#128142;</span>
+                450 pontos
+            </span>
+
+            <span aria-hidden="true">&#128276;</span>
+        </div>
+
+        <div>
+            <img src="avatar-placeholder.png" alt="Foto de perfil de Lucas">
+            <span>Olá, Lucas!</span>
+        </div>
+    </header>
+
+    <!-- ===================== NAV LATERAL ===================== -->
+    <nav>
+        <ul>
+            <li><a href="#inicio" aria-current="page">
+                <span aria-hidden="true">&#8962;</span> Início
+            </a></li>
+            <li><a href="#trilhas">
+                <span aria-hidden="true">&#128218;</span> Trilhas de aprendizado
+            </a></li>
+            <li><a href="#simulador">
+                <span aria-hidden="true">&#128203;</span> Simulador
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main id="inicio">
+
+        <h1>Início</h1>
+
+        <!-- Bloco de navegação/atalhos secundário + progresso da trilha -->
+        <aside aria-label="Atalhos e progresso">
+            <nav aria-label="Atalhos rápidos">
+                <ul>
+                    <li><a href="#inicio">INÍCIO</a></li>
+                    <li><a href="#simulador">SIMULADOR</a></li>
+                </ul>
+            </nav>
+
+            <section aria-labelledby="trilha-atual">
+                <h2 id="trilha-atual">TRILHA</h2>
+                <p>NOVATO</p>
+                <p>20%</p>
+                <progress value="20" max="100">20%</progress>
+            </section>
+        </aside>
+
+        <!-- Gráfico CDB -->
+        <section aria-labelledby="titulo-cdb">
+            <h2 id="titulo-cdb">CDB</h2>
+
+            <button type="button" aria-label="Gráfico anterior">&#8249;</button>
+            <button type="button" aria-label="Próximo gráfico">&#8250;</button>
+
+            <figure>
+                <img src="grafico-cdb-placeholder.png" alt="Gráfico de evolução do investimento em CDB">
+                <figcaption>Evolução do CDB ao longo do tempo</figcaption>
+            </figure>
+        </section>
+
+        <!-- Trilha de aprendizado -->
+        <section id="trilhas" aria-labelledby="titulo-trilha">
+            <h2 id="titulo-trilha">Sua trilha de aprendizado</h2>
+
+            <ol>
+                <li>
+                    <span aria-hidden="true">&#9654;</span>
+                    <h3>Introdução às Finanças</h3>
+                    <p>4/5 aulas</p>
+                    <progress value="4" max="5">4 de 5 aulas</progress>
+                </li>
+                <li>
+                    <span aria-hidden="true">&#128176;</span>
+                    <h3>Orçamento Pessoal</h3>
+                    <p>3/6 aulas</p>
+                    <progress value="3" max="6">3 de 6 aulas</progress>
+                </li>
+                <li>
+                    <span aria-hidden="true">&#128274;</span>
+                    <h3>Investimentos Básicos</h3>
+                    <p>0/6 aulas</p>
+                    <progress value="0" max="6">0 de 6 aulas</progress>
+                </li>
+                <li>
+                    <span aria-hidden="true">&#128274;</span>
+                    <h3>Reserva de Emergência</h3>
+                    <p>0/5 aulas</p>
+                    <progress value="0" max="5">0 de 5 aulas</progress>
+                </li>
+                <li>
+                    <span aria-hidden="true">&#128274;</span>
+                    <h3>Metas Financeiras</h3>
+                    <p>0/4 aulas</p>
+                    <progress value="0" max="4">0 de 4 aulas</progress>
+                </li>
+            </ol>
+
+            <button type="button">VER TODAS AS TRILHAS</button>
+        </section>
+
+        <!-- Metas -->
+        <section id="metas-nav" aria-labelledby="titulo-metas">
+            <h2 id="titulo-metas">METAS</h2>
+            <ul>
+                <li>
+                    <input type="checkbox" id="meta-1" disabled>
+                    <label for="meta-1">Meta financeira 1</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="meta-2" disabled>
+                    <label for="meta-2">Meta financeira 2</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="meta-3" disabled>
+                    <label for="meta-3">Meta financeira 3</label>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Dicas (vídeo) -->
+        <section aria-labelledby="titulo-dicas">
+            <h2 id="titulo-dicas">DICAS</h2>
+            <video controls poster="dica-thumbnail-placeholder.png">
+                <source src="dica-video.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </section>
+
+    </main>
+
+    <!-- ===================== SIDEBAR DIREITA ===================== -->
+    <aside aria-label="Resumo de sequência e meta diária">
+        <section aria-labelledby="titulo-sequencia">
+            <h2 id="titulo-sequencia">
+                <span aria-hidden="true">&#128293;</span> 12 D SEQUÊNCIA
+            </h2>
+            <p>DIAS DE SEQUÊNCIA</p>
+        </section>
+
+        <section aria-labelledby="titulo-meta-diaria">
+            <h2 id="titulo-meta-diaria">META DIÁRIA</h2>
+            <progress value="20" max="100">20%</progress>
+            <p>20%</p>
+        </section>
+    </aside>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <p>&copy; 2024 FinanEdu. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
