@@ -488,3 +488,153 @@ body > footer {
     font-size: 0.8rem;
     color: var(--cor-texto-suave);
 }
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+/* --- Tablet (≤1024px): reduz nav lateral e simplifica o grid do topo --- */
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 200px 1fr;
+    }
+
+    section[aria-labelledby="titulo-dica"] {
+        grid-column: 7 / -1;
+    }
+
+    section[aria-labelledby="titulo-form"] {
+        grid-column: 1 / 7;
+    }
+
+    section[aria-labelledby="titulo-resultado"] {
+        grid-column: 1 / -1;
+        grid-row: 5;
+    }
+
+    section[aria-labelledby="titulo-guia"] {
+        grid-row: 6;
+    }
+}
+
+/* --- Tablet pequeno / mobile (≤768px): empilha tudo em coluna única --- */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+
+    header {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+
+    nav[aria-label="Navegação principal"] {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        border-right: none;
+        border-bottom: 1px solid var(--cor-borda);
+        padding: 12px 16px;
+    }
+
+    nav[aria-label="Navegação principal"] > a:first-child,
+    nav[aria-label="Navegação principal"] > p {
+        flex-basis: 100%;
+        margin-bottom: 0;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    main > *:nth-child(1),
+    main > h1,
+    main > p:nth-of-type(1),
+    main > p:nth-of-type(2),
+    section[aria-labelledby="titulo-dica"],
+    section[aria-labelledby="titulo-form"],
+    section[aria-labelledby="titulo-resultado"],
+    section[aria-labelledby="titulo-guia"] {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    main > h1 {
+        align-self: auto;
+    }
+
+    /* Formulário: campos ocupam a largura toda */
+    #investment-form input {
+        width: 100%;
+    }
+
+    #investment-form p span:not(:first-child) {
+        margin: 4px 0 0;
+        display: inline-block;
+    }
+
+    /* Estatísticas do resultado: de 3 colunas para lista única */
+    dl {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    /* Guia para iniciantes: passos empilhados, sem as setas conectoras */
+    section[aria-labelledby="titulo-guia"] ol {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    section[aria-labelledby="titulo-guia"] li {
+        flex: none;
+        width: 100%;
+    }
+
+    section[aria-labelledby="titulo-guia"] li:not(:last-child)::after {
+        content: none;
+    }
+}
+
+/* --- Mobile (≤480px): ajustes finos de espaçamento e fontes --- */
+@media (max-width: 480px) {
+    :root {
+        --espaco: 16px;
+        --icone: 40px;
+    }
+
+    header > div {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    header > div:first-of-type {
+        order: 2;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 16px;
+    }
+
+    main > h1 {
+        font-size: 1.25rem;
+    }
+
+    #total-value {
+        font-size: 1.6rem;
+    }
+
+    figcaption {
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: flex-start;
+    }
+}
