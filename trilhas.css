@@ -354,3 +354,106 @@ footer {
     font-size: 0.8rem;
     color: var(--cor-texto-suave);
 }
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+/* --- Telas médias (tablets / notebooks pequenos) --- */
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "header header"
+            "nav    main"
+            "sidebar sidebar"
+            "footer footer";
+    }
+
+    body > main + section {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    body > main + section > section {
+        flex: 1;
+        min-width: 220px;
+    }
+}
+
+/* --- Telas pequenas (tablets em pé) --- */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    header {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+
+    header > p:nth-child(2) {
+        margin-right: 0;
+        width: 100%;
+        order: 1;
+    }
+
+    body > nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-right: none;
+        border-bottom: 1px solid var(--cor-borda);
+    }
+
+    body > nav section {
+        margin-top: 0;
+        flex-basis: 100%;
+    }
+
+    main > section[id^="fase"] ol {
+        flex-direction: column;
+    }
+
+    main > section[id^="fase"] li:not(:last-child)::after {
+        content: none;
+    }
+
+    main > section[id^="fase"] li {
+        flex-direction: row;
+        text-align: left;
+        min-width: 0;
+    }
+
+    main > section[id^="fase"] h3 {
+        margin-top: 0;
+    }
+}
+
+/* --- Telas de celular --- */
+@media (max-width: 480px) {
+    :root {
+        --espaco: 16px;
+    }
+
+    header > div {
+        gap: 12px;
+    }
+
+    section[aria-labelledby="titulo-nivel"] {
+        justify-content: flex-start;
+    }
+
+    nav[aria-label="Filtro de nível"] {
+        flex-wrap: wrap;
+    }
+
+    main > section[id^="fase"] li {
+        align-items: flex-start;
+    }
+}
