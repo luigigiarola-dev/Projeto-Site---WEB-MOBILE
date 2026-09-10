@@ -1,0 +1,356 @@
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor-texto: #1a1a1a;
+    --cor-texto-suave: #6b6b6b;
+    --cor-borda: #e2e2e2;
+    --cor-fundo: #ffffff;
+    --cor-fundo-suave: #f7f7f8;
+    --cor-destaque: #111111;
+    --raio-card: 12px;
+    --raio-pequeno: 6px;
+    --espaco: 24px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.4;
+
+    display: grid;
+    grid-template-columns: 220px 1fr 300px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "nav    main    sidebar"
+        "footer footer  footer";
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco);
+    padding: 16px var(--espaco);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+header > p:first-child {
+    font-weight: 600;
+}
+
+header > p:nth-child(2) {
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header > div:first-of-type span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+}
+
+header > div:last-of-type {
+    gap: 10px;
+}
+
+header img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--cor-fundo-suave);
+}
+
+/* =========================================================
+   NAV LATERAL
+   ========================================================= */
+body > nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--espaco) 16px;
+    border-right: 1px solid var(--cor-borda);
+}
+
+body > nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: var(--raio-pequeno);
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+}
+
+body > nav a:hover {
+    background-color: var(--cor-fundo-suave);
+}
+
+body > nav a[aria-current="page"] {
+    background-color: var(--cor-fundo-suave);
+    font-weight: 600;
+}
+
+/* Status nível: empurrado para o rodapé da nav */
+body > nav section {
+    margin-top: auto;
+    padding: var(--espaco) 16px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+    text-align: center;
+}
+
+body > nav section h2 {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+body > nav section p {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+main {
+    grid-area: main;
+    padding: var(--espaco);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco);
+}
+
+main > h1 {
+    font-size: 1.4rem;
+}
+
+/* --- Nível atual e filtros --- */
+section[aria-labelledby="titulo-nivel"] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco);
+}
+
+section[aria-labelledby="titulo-nivel"] h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+nav[aria-label="Filtro de nível"] {
+    display: flex;
+    gap: 10px;
+}
+
+nav[aria-label="Filtro de nível"] a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--cor-texto-suave);
+    font-size: 0.85rem;
+}
+
+nav[aria-label="Filtro de nível"] a[aria-current="true"] {
+    color: var(--cor-fundo);
+    background-color: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+}
+
+/* --- Fases (Fundamentos / Planejamento / Estratégia) --- */
+main > section[id^="fase"] h2 {
+    display: inline-block;
+    margin-bottom: var(--espaco);
+    padding: 8px 16px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+main > section[id^="fase"] ol {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+}
+
+main > section[id^="fase"] li {
+    flex: 1;
+    min-width: 140px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+}
+
+/* Linha tracejada conectando os módulos de cada fase */
+main > section[id^="fase"] li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    width: 100%;
+    border-top: 2px dashed var(--cor-borda);
+    z-index: 0;
+}
+
+main > section[id^="fase"] li span[aria-hidden] {
+    position: relative;
+    z-index: 1;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--cor-destaque);
+    border-radius: 50%;
+    background-color: var(--cor-fundo);
+    font-size: 1.1rem;
+}
+
+main > section[id^="fase"] h3 {
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+main > section[id^="fase"] li > p {
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
+
+main > section[id^="fase"] progress {
+    width: 100%;
+}
+
+/* Módulos bloqueados ficam esmaecidos */
+#fase1 li:nth-of-type(3),
+#fase2 li,
+#fase3 li {
+    opacity: 0.55;
+}
+
+#fase1 li:nth-of-type(3) span[aria-hidden],
+#fase2 li span[aria-hidden],
+#fase3 li span[aria-hidden] {
+    border-color: var(--cor-borda);
+}
+
+/* =========================================================
+   SIDEBAR DIREITA
+   ========================================================= */
+body > main + section {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco);
+    padding: var(--espaco);
+}
+
+body > main + section > section {
+    padding: var(--espaco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+}
+
+section[aria-labelledby="titulo-sequencia"] h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+section[aria-labelledby="titulo-sequencia"] p {
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
+
+section[aria-labelledby="titulo-meta-diaria"] h2 {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--espaco);
+}
+
+section[aria-labelledby="titulo-meta-diaria"] p {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* =========================================================
+   COMPONENTES REUTILIZÁVEIS (progress)
+   ========================================================= */
+progress {
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border: none;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--cor-fundo-suave);
+    border-radius: 999px;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--cor-destaque);
+    border-radius: 999px;
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--cor-destaque);
+    border-radius: 999px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+    grid-area: footer;
+    padding: 16px var(--espaco);
+    border-top: 1px solid var(--cor-borda);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
