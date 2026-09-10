@@ -1,0 +1,494 @@
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor-texto: #1a1a1a;
+    --cor-texto-suave: #6b6b6b;
+    --cor-borda: #e2e2e2;
+    --cor-fundo: #ffffff;
+    --cor-fundo-suave: #f7f7f8;
+    --cor-destaque: #111111;
+    --raio-card: 12px;
+    --raio-pequeno: 6px;
+    --espaco: 24px;
+    --icone: 48px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.4;
+
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "nav    main"
+        "footer footer";
+}
+
+/* =========================================================
+   TOPO
+   ========================================================= */
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco);
+    padding: 16px var(--espaco);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+header > p:first-child {
+    font-weight: 600;
+}
+
+header > p:nth-child(2) {
+    margin-right: auto;
+    color: var(--cor-texto-suave);
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header > div:first-of-type span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+}
+
+header > div:last-of-type {
+    gap: 10px;
+}
+
+header img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--cor-fundo-suave);
+}
+
+/* =========================================================
+   NAV LATERAL
+   ========================================================= */
+nav[aria-label="Navegação principal"] {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--espaco) 16px;
+    border-right: 1px solid var(--cor-borda);
+}
+
+/* Logo */
+nav[aria-label="Navegação principal"] > a:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-size: 1.1rem;
+    padding: 8px 12px;
+}
+
+/* Tagline */
+nav[aria-label="Navegação principal"] > p {
+    padding: 0 12px;
+    margin-bottom: var(--espaco);
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
+
+/* Links */
+nav[aria-label="Navegação principal"] a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: var(--raio-pequeno);
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+}
+
+nav[aria-label="Navegação principal"] a:hover {
+    background-color: var(--cor-fundo-suave);
+}
+
+nav[aria-label="Navegação principal"] a[aria-current="page"] {
+    background-color: var(--cor-fundo-suave);
+    font-weight: 600;
+}
+
+/* Empurra Ajuda/Configurações para o rodapé da nav */
+nav[aria-label="Navegação principal"] a:nth-last-of-type(2) {
+    margin-top: auto;
+}
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+main {
+    grid-area: main;
+    padding: var(--espaco);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco);
+    align-content: start;
+}
+
+/* Cabeçalho da página (ícone + título + descrição) */
+main > *:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    width: var(--icone);
+    height: var(--icone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+}
+
+main > h1 {
+    grid-column: 2 / 9;
+    grid-row: 1;
+    align-self: center;
+    font-size: 1.5rem;
+}
+
+main > p:nth-of-type(1) {
+    grid-column: 2 / 9;
+    grid-row: 2;
+    color: var(--cor-texto-suave);
+}
+
+main > p:nth-of-type(2) {
+    grid-column: 2 / 9;
+    grid-row: 3;
+    color: var(--cor-texto-suave);
+}
+
+/* Dica rápida */
+section[aria-labelledby="titulo-dica"] {
+    grid-column: 9 / -1;
+    grid-row: 1 / 4;
+    padding: var(--espaco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+}
+
+section[aria-labelledby="titulo-dica"] span {
+    font-size: 1.2rem;
+}
+
+section[aria-labelledby="titulo-dica"] h2 {
+    display: inline;
+    font-size: 1rem;
+    margin-left: 8px;
+}
+
+section[aria-labelledby="titulo-dica"] p {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+}
+
+/* --- 1. Informe seus dados --- */
+section[aria-labelledby="titulo-form"] {
+    grid-column: 1 / 7;
+    grid-row: 4;
+    padding: var(--espaco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+}
+
+section[aria-labelledby="titulo-form"] h2,
+section[aria-labelledby="titulo-resultado"] h2,
+section[aria-labelledby="titulo-guia"] h2 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+section[aria-labelledby="titulo-form"] > p {
+    color: var(--cor-texto-suave);
+    margin-bottom: var(--espaco);
+}
+
+/* Cada campo do formulário */
+#investment-form > p {
+    position: relative;
+    padding-left: calc(var(--icone) + 16px);
+    margin-bottom: 18px;
+}
+
+#investment-form > p > span:first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--icone);
+    height: var(--icone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    background-color: var(--cor-fundo-suave);
+}
+
+#investment-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+#investment-form input {
+    padding: 10px 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    font-size: 0.95rem;
+    width: 70%;
+}
+
+#investment-form p span:not(:first-child) {
+    margin: 0 8px;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+}
+
+#investment-form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border: none;
+    border-radius: var(--raio-pequeno);
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+}
+
+#investment-form small {
+    display: block;
+    margin-top: var(--espaco);
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--cor-texto-suave);
+}
+
+/* --- 2. Veja o resultado --- */
+section[aria-labelledby="titulo-resultado"] {
+    grid-column: 7 / -1;
+    grid-row: 4;
+    padding: var(--espaco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+}
+
+section[aria-labelledby="titulo-resultado"] > p {
+    color: var(--cor-texto-suave);
+    margin-bottom: var(--espaco);
+}
+
+article[aria-label="Resultado da simulação"] {
+    padding: var(--espaco);
+    background-color: var(--cor-fundo-suave);
+    border-radius: var(--raio-card);
+}
+
+article[aria-label="Resultado da simulação"] > p:first-of-type {
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+}
+
+#total-value {
+    display: block;
+    font-size: 2rem;
+    margin: 6px 0 10px;
+}
+
+article[aria-label="Resultado da simulação"] > p:last-of-type {
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+    margin-bottom: var(--espaco);
+}
+
+/* Gráfico */
+figure {
+    margin-bottom: var(--espaco);
+}
+
+#investment-chart {
+    width: 100%;
+    height: 160px;
+    display: block;
+}
+
+figcaption {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: var(--cor-texto-suave);
+}
+
+/* Estatísticas (investido / rendimento / total) */
+dl {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 6px var(--espaco);
+    padding-top: var(--espaco);
+    border-top: 1px solid var(--cor-borda);
+}
+
+dt {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+}
+
+dd {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+dd strong {
+    font-size: 1.05rem;
+}
+
+dd small {
+    font-size: 0.75rem;
+    color: var(--cor-texto-suave);
+}
+
+/* Entendendo o resultado */
+details {
+    margin-top: var(--espaco);
+    padding: 16px var(--espaco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+}
+
+details summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary::after {
+    content: "\2304";
+    margin-left: auto;
+    font-size: 1.1rem;
+    transition: transform 0.15s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+details p {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--cor-texto-suave);
+}
+
+/* --- Guia para iniciantes --- */
+section[aria-labelledby="titulo-guia"] {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    padding: var(--espaco);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-card);
+}
+
+section[aria-labelledby="titulo-guia"] > p {
+    color: var(--cor-texto-suave);
+    margin-bottom: var(--espaco);
+}
+
+section[aria-labelledby="titulo-guia"] ol {
+    display: flex;
+    gap: 48px;
+    list-style: none;
+}
+
+section[aria-labelledby="titulo-guia"] li {
+    position: relative;
+    flex: 1;
+    padding-left: calc(var(--icone) + 16px);
+    min-height: var(--icone);
+}
+
+section[aria-labelledby="titulo-guia"] li:not(:last-child)::after {
+    content: "\2192";
+    position: absolute;
+    top: 12px;
+    right: -34px;
+    font-size: 1.2rem;
+    color: var(--cor-texto-suave);
+}
+
+section[aria-labelledby="titulo-guia"] li > span:first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--icone);
+    height: var(--icone);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-pequeno);
+    background-color: var(--cor-fundo-suave);
+}
+
+section[aria-labelledby="titulo-guia"] h3 {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+section[aria-labelledby="titulo-guia"] li p {
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+body > footer {
+    grid-area: footer;
+    padding: 16px var(--espaco);
+    border-top: 1px solid var(--cor-borda);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--cor-texto-suave);
+}
