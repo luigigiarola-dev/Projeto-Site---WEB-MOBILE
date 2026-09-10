@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FinanEdu - Simulador de Investimento</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanEdu - Trilha de Conhecimento</title>
 </head>
 <body>
 
-  <header>
+    <!-- ===================== TOPO ===================== -->
+    <header>
         <p>FinanEdu</p>
-        <p>Trilha de Conhecimento</p>
+        <p>&lt; Trilha de Conhecimento</p>
 
         <div>
             <span>
@@ -31,148 +31,146 @@
             <span>Olá, Lucas!</span>
         </div>
     </header>
-      
 
-  <section class="app-body">
+    <!-- ===================== NAV LATERAL ===================== -->
+    <nav aria-label="Navegação principal">
+        <a href="#inicio">
+            <span aria-hidden="true">&#8962;</span> Início
+        </a>
+        <a href="#trilha" aria-current="page">
+            <span aria-hidden="true">&#128218;</span> Trilha
+        </a>
+        <a href="#simulador">
+            <span aria-hidden="true">&#128203;</span> Simulador
+        </a>
+    </nav>
 
-    <aside class="sidebar" aria-label="Navegação principal">
-      <nav class="sidebar-nav">
-        <a href="#" class="nav-item">
-          <span>Início</span>
-        </a>
-        <a href="#" class="nav-item nav-item-active" aria-current="page">
-          <span>Trilha</span>
-        </a>
-        <a href="#" class="nav-item">
-          <span>Simulador</span>
-        </a>
-      </nav>
+    <!-- Status de nível (fica junto à navegação lateral) -->
+    <section aria-labelledby="titulo-status-nivel">
+        <h2 id="titulo-status-nivel">Status nível</h2>
+        <p>Novato 20%</p>
+        <progress value="20" max="100">20%</progress>
+        <p>Continue assim!</p>
+    </section>
 
-      <footer class="sidebar-footer">
-        <article class="card status-nivel-card">
-          <p class="card-meta-title">Status nível</p>
-          <p class="status-nivel-name">Novato 20%</p>
-          <meter class="progress-bar" value="20" min="0" max="100"></meter>
-          <p class="status-nivel-hint">Continue assim!</p>
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main id="quiz">
+
+        <!-- Trilha de navegação (breadcrumb) -->
+        <nav aria-label="Trilha de navegação">
+            <span>Fase 1 - Fundamentos</span>
+            <span>&gt;</span>
+            <span>Introdução às Finanças</span>
+            <span>&gt;</span>
+            <span>Aula 1 de 5</span>
+        </nav>
+
+        <!-- Cartão de atividade / quiz -->
+        <article aria-labelledby="titulo-atividade">
+
+            <header>
+                <span id="titulo-atividade">Atividade</span>
+
+                <!-- Progresso da atividade -->
+                <section aria-label="Progresso da atividade">
+                    <span aria-hidden="true">&#9679;</span>
+                    <span aria-hidden="true">&#9675;</span>
+                    <span aria-hidden="true">&#9675;</span>
+                    <span aria-hidden="true">&#9675;</span>
+                    <span aria-hidden="true">&#9675;</span>
+                </section>
+
+                <span>1 / 5</span>
+            </header>
+
+            <section>
+                <h2>O que é uma receita?</h2>
+                <p>Selecione a alternativa correta.</p>
+
+                <form aria-label="Alternativas da pergunta">
+
+                    <label for="opcao-a">
+                        <input type="radio" name="resposta" id="opcao-a" value="a">
+                        <span>A</span>
+                        <span>Dinheiro que sai do seu bolso para pagar contas.</span>
+                    </label>
+
+                    <label for="opcao-b">
+                        <input type="radio" name="resposta" id="opcao-b" value="b" checked>
+                        <span>B</span>
+                        <span>Dinheiro que você recebe com trabalho, vendas ou investimentos.</span>
+                    </label>
+
+                    <label for="opcao-c">
+                        <input type="radio" name="resposta" id="opcao-c" value="c">
+                        <span>C</span>
+                        <span>Dinheiro guardado para emergências.</span>
+                    </label>
+
+                    <label for="opcao-d">
+                        <input type="radio" name="resposta" id="opcao-d" value="d">
+                        <span>D</span>
+                        <span>Dinheiro usado para investir na bolsa de valores.</span>
+                    </label>
+
+                    <button type="submit">Verificar resposta</button>
+                </form>
+            </section>
+
+            <footer>
+                <section>
+                    <p>Dica:</p>
+                    <p>Receita é o dinheiro que você recebe. Pode vir do seu salário, de uma venda ou de rendimentos de investimentos.</p>
+                </section>
+                <button type="button">Continuar</button>
+            </footer>
+
         </article>
-      </footer>
-    </aside>
 
-    <main class="main-content">
+        <!-- Navegação entre aulas -->
+        <nav aria-label="Navegação entre aulas">
+            <button type="button" disabled>
+                <span>Aula anterior</span>
+            </button>
 
-      <nav class="breadcrumb" aria-label="Trilha de navegação">
-        <span>Fase 1 - Fundamentos</span>
-        <span class="breadcrumb-separator">&gt;</span>
-        <span>Introdução ao Simulador de Investimentos</span>
-        <span class="breadcrumb-separator">&gt;</span>
-        <span class="breadcrumb-current">Aula 1 de 5</span>
-      </nav>
+            <hgroup>
+                <p>Introdução às Finanças</p>
+                <p>1 de 5</p>
+            </hgroup>
 
-      <article class="quiz-card">
-
-        <header class="quiz-card-header">
-          <span class="quiz-label">Atividade</span>
-
-          <ol class="progress-steps" aria-label="Progresso da atividade">
-            <li class="step step-complete"></li>
-            <li class="step"></li>
-            <li class="step"></li>
-            <li class="step"></li>
-            <li class="step"></li>
-          </ol>
-
-          <span class="quiz-count">1 / 5</span>
-        </header>
-
-        <section class="quiz-body">
-          <h2 class="quiz-question">O que é uma carteira de investimentos?</h2>
-          <p class="quiz-instruction">Selecione a alternativa correta.</p>
-
-          <form class="quiz-options" aria-label="Alternativas da pergunta">
-
-            <label class="option" for="opcao-a">
-              <input type="radio" name="resposta" id="opcao-a" value="a">
-              <span class="option-letter">A</span>
-              <span class="option-text">Dinheiro guardado embaixo do colchão.</span>
-            </label>
-
-            <label class="option" for="opcao-b">
-              <input type="radio" name="resposta" id="opcao-b" value="b" checked>
-              <span class="option-letter">B</span>
-              <span class="option-text">Conjunto de ativos financeiros, como ações, fundos e renda fixa, reunidos por um investidor.</span>
-            </label>
-
-            <label class="option" for="opcao-c">
-              <input type="radio" name="resposta" id="opcao-c" value="c">
-              <span class="option-letter">C</span>
-              <span class="option-text">Uma conta poupança única em um banco.</span>
-            </label>
-
-            <label class="option" for="opcao-d">
-              <input type="radio" name="resposta" id="opcao-d" value="d">
-              <span class="option-letter">D</span>
-              <span class="option-text">Valor usado apenas para pagar dívidas.</span>
-            </label>
-
-            <button class="btn-verificar" type="submit">Verificar resposta</button>
-          </form>
-        </section>
-
-        <footer class="quiz-tip">
-          <section class="tip-content">
-            <p class="tip-title">Dica:</p>
-            <p class="tip-text">Uma carteira de investimentos é a combinação de diferentes ativos que você escolhe para investir, buscando equilibrar risco e retorno.</p>
-          </section>
-          <button class="btn-continuar" type="button">Continuar</button>
-        </footer>
-
-      </article>
-
-      <nav class="lesson-nav" aria-label="Navegação entre aulas">
-        <button class="btn-aula-anterior" type="button" disabled>
-          <span>Aula anterior</span>
-        </button>
-
-        <hgroup class="lesson-nav-title">
-          <p class="lesson-name">Introdução ao Simulador de Investimentos</p>
-          <p class="lesson-progress">1 de 5</p>
-        </hgroup>
-
-        <button class="btn-proxima-aula" type="button">
-          <span>Próxima aula</span>
-        </button>
-      </nav>
+            <button type="button">
+                <span>Próxima aula</span>
+            </button>
+        </nav>
 
     </main>
 
-    <aside class="right-panel" aria-label="Resumo de progresso">
+    <!-- ===================== SIDEBAR DIREITA ===================== -->
+    <section aria-label="Resumo de progresso">
 
-      <article class="card card-sequencia">
-        <hgroup class="card-sequencia-info">
-          <p class="card-sequencia-value">12 D</p>
-          <p class="card-sequencia-label">Sequência</p>
-        </hgroup>
-        <p class="card-sequencia-hint">Continue assim!</p>
-      </article>
+        <article aria-labelledby="titulo-sequencia">
+            <hgroup>
+                <p id="titulo-sequencia">12 D</p>
+                <p>Sequência</p>
+            </hgroup>
+            <p>Continue assim!</p>
+        </article>
 
-      <article class="card card-meta">
-        <p class="card-meta-title">Meta diária</p>
-        <section class="progress-row">
-          <meter class="progress-bar" value="20" min="0" max="100"></meter>
-          <span class="progress-value">20%</span>
-        </section>
-        <p class="card-meta-hint">Simule mais 15 minutos para atingir sua meta!</p>
-      </article>
+        <article aria-labelledby="titulo-meta-diaria">
+            <p id="titulo-meta-diaria">Meta diária</p>
+            <section>
+                <progress value="20" max="100">20%</progress>
+                <span>20%</span>
+            </section>
+            <p>Estude mais 15 minutos para atingir sua meta!</p>
+        </article>
 
-    </aside>
+    </section>
 
-  </section>
-<!-- ===================== FOOTER ===================== -->
+    <!-- ===================== FOOTER ===================== -->
     <footer>
         <p>&copy; 2024 FinanEdu. Todos os direitos reservados.</p>
     </footer>
 
-</body>
-</html>
 </body>
 </html>
