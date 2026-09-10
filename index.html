@@ -33,17 +33,15 @@
 
     <!-- ===================== NAV LATERAL ===================== -->
     <nav>
-        <ul>
-            <li><a href="#inicio" aria-current="page">
-                <span aria-hidden="true">&#8962;</span> Início
-            </a></li>
-            <li><a href="#trilhas">
-                <span aria-hidden="true">&#128218;</span> Trilhas de aprendizado
-            </a></li>
-            <li><a href="#simulador">
-                <span aria-hidden="true">&#128203;</span> Simulador
-            </a></li>
-        </ul>
+        <a href="#inicio" aria-current="page">
+            <span aria-hidden="true">&#8962;</span> Início
+        </a>
+        <a href="#trilhas">
+            <span aria-hidden="true">&#128218;</span> Trilhas de aprendizado
+        </a>
+        <a href="#simulador">
+            <span aria-hidden="true">&#128203;</span> Simulador
+        </a>
     </nav>
 
     <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
@@ -51,22 +49,19 @@
 
         <h1>Início</h1>
 
-        <!-- Bloco de navegação/atalhos secundário + progresso da trilha -->
-        <aside aria-label="Atalhos e progresso">
-            <nav aria-label="Atalhos rápidos">
-                <ul>
-                    <li><a href="#inicio">INÍCIO</a></li>
-                    <li><a href="#simulador">SIMULADOR</a></li>
-                </ul>
-            </nav>
+        <!-- Atalhos secundários -->
+        <nav aria-label="Atalhos rápidos">
+            <a href="#inicio">INÍCIO</a>
+            <a href="#simulador">SIMULADOR</a>
+        </nav>
 
-            <section aria-labelledby="trilha-atual">
-                <h2 id="trilha-atual">TRILHA</h2>
-                <p>NOVATO</p>
-                <p>20%</p>
-                <progress value="20" max="100">20%</progress>
-            </section>
-        </aside>
+        <!-- Progresso da trilha atual -->
+        <section aria-labelledby="trilha-atual">
+            <h2 id="trilha-atual">TRILHA</h2>
+            <p>NOVATO</p>
+            <p>20%</p>
+            <progress value="20" max="100">20%</progress>
+        </section>
 
         <!-- Gráfico CDB -->
         <section aria-labelledby="titulo-cdb">
@@ -85,38 +80,40 @@
         <section id="trilhas" aria-labelledby="titulo-trilha">
             <h2 id="titulo-trilha">Sua trilha de aprendizado</h2>
 
-            <ol>
-                <li>
-                    <span aria-hidden="true">&#9654;</span>
-                    <h3>Introdução às Finanças</h3>
-                    <p>4/5 aulas</p>
-                    <progress value="4" max="5">4 de 5 aulas</progress>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128176;</span>
-                    <h3>Orçamento Pessoal</h3>
-                    <p>3/6 aulas</p>
-                    <progress value="3" max="6">3 de 6 aulas</progress>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Investimentos Básicos</h3>
-                    <p>0/6 aulas</p>
-                    <progress value="0" max="6">0 de 6 aulas</progress>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Reserva de Emergência</h3>
-                    <p>0/5 aulas</p>
-                    <progress value="0" max="5">0 de 5 aulas</progress>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Metas Financeiras</h3>
-                    <p>0/4 aulas</p>
-                    <progress value="0" max="4">0 de 4 aulas</progress>
-                </li>
-            </ol>
+            <article>
+                <span aria-hidden="true">&#9654;</span>
+                <h3>Introdução às Finanças</h3>
+                <p>4/5 aulas</p>
+                <progress value="4" max="5">4 de 5 aulas</progress>
+            </article>
+
+            <article>
+                <span aria-hidden="true">&#128176;</span>
+                <h3>Orçamento Pessoal</h3>
+                <p>3/6 aulas</p>
+                <progress value="3" max="6">3 de 6 aulas</progress>
+            </article>
+
+            <article>
+                <span aria-hidden="true">&#128274;</span>
+                <h3>Investimentos Básicos</h3>
+                <p>0/6 aulas</p>
+                <progress value="0" max="6">0 de 6 aulas</progress>
+            </article>
+
+            <article>
+                <span aria-hidden="true">&#128274;</span>
+                <h3>Reserva de Emergência</h3>
+                <p>0/5 aulas</p>
+                <progress value="0" max="5">0 de 5 aulas</progress>
+            </article>
+
+            <article>
+                <span aria-hidden="true">&#128274;</span>
+                <h3>Metas Financeiras</h3>
+                <p>0/4 aulas</p>
+                <progress value="0" max="4">0 de 4 aulas</progress>
+            </article>
 
             <button type="button">VER TODAS AS TRILHAS</button>
         </section>
@@ -124,20 +121,19 @@
         <!-- Metas -->
         <section id="metas-nav" aria-labelledby="titulo-metas">
             <h2 id="titulo-metas">METAS</h2>
-            <ul>
-                <li>
-                    <input type="checkbox" id="meta-1" disabled>
-                    <label for="meta-1">Meta financeira 1</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="meta-2" disabled>
-                    <label for="meta-2">Meta financeira 2</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="meta-3" disabled>
-                    <label for="meta-3">Meta financeira 3</label>
-                </li>
-            </ul>
+
+            <p>
+                <input type="checkbox" id="meta-1" disabled>
+                <label for="meta-1">Meta financeira 1</label>
+            </p>
+            <p>
+                <input type="checkbox" id="meta-2" disabled>
+                <label for="meta-2">Meta financeira 2</label>
+            </p>
+            <p>
+                <input type="checkbox" id="meta-3" disabled>
+                <label for="meta-3">Meta financeira 3</label>
+            </p>
         </section>
 
         <!-- Dicas (vídeo) -->
@@ -152,20 +148,16 @@
     </main>
 
     <!-- ===================== SIDEBAR DIREITA ===================== -->
-    <aside aria-label="Resumo de sequência e meta diária">
-        <section aria-labelledby="titulo-sequencia">
-            <h2 id="titulo-sequencia">
-                <span aria-hidden="true">&#128293;</span> 12 D SEQUÊNCIA
-            </h2>
-            <p>DIAS DE SEQUÊNCIA</p>
-        </section>
+    <section aria-label="Resumo de sequência e meta diária">
+        <h2 id="titulo-sequencia">
+            <span aria-hidden="true">&#128293;</span> 12 D SEQUÊNCIA
+        </h2>
+        <p>DIAS DE SEQUÊNCIA</p>
 
-        <section aria-labelledby="titulo-meta-diaria">
-            <h2 id="titulo-meta-diaria">META DIÁRIA</h2>
-            <progress value="20" max="100">20%</progress>
-            <p>20%</p>
-        </section>
-    </aside>
+        <h2 id="titulo-meta-diaria">META DIÁRIA</h2>
+        <progress value="20" max="100">20%</progress>
+        <p>20%</p>
+    </section>
 
     <!-- ===================== FOOTER ===================== -->
     <footer>
