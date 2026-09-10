@@ -135,10 +135,6 @@ nav[aria-label="Navegação principal"] a[aria-current="page"] {
     font-weight: 600;
 }
 
-/* Empurra Ajuda/Configurações para o rodapé da nav */
-nav[aria-label="Navegação principal"] a:nth-last-of-type(2) {
-    margin-top: auto;
-}
 
 /* =========================================================
    CONTEÚDO PRINCIPAL
