@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <!--arquivo atualizado -->
+<!-- grafico 1.0-->
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinanEdu - Início</title>
     <link rel="stylesheet" href="index.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="index.js" defer></script>
 </head>
 <body>
@@ -60,16 +62,13 @@
             <progress value="20" max="100">20%</progress>
         </section>
 
-        <!-- Gráfico CDB -->
+        <!-- Gráfico de investimentos -->
         <section aria-labelledby="titulo-cdb">
-            <h2 id="titulo-cdb">CDB</h2>
-
-            <button type="button" aria-label="Gráfico anterior">&#8249;</button>
-            <button type="button" aria-label="Próximo gráfico">&#8250;</button>
+            <h2 id="titulo-cdb">Evolução dos Investimentos</h2>
 
             <figure>
-                <img src="grafico-cdb-placeholder.png" alt="Gráfico de evolução do investimento em CDB">
-                <figcaption>Evolução do CDB ao longo do tempo</figcaption>
+                <div id="grafico-investimentos" role="img" aria-label="Gráfico de evolução do CDB, Tesouro Selic, Poupança e Fundos Imobiliários"></div>
+                <figcaption>Comparativo de rendimento ao longo de 12 meses</figcaption>
             </figure>
         </section>
 
