@@ -67,6 +67,9 @@
         </nav>
 
         <!-- Cartão de atividade / quiz -->
+        <!-- O conteúdo abaixo (pergunta, alternativas e dica) é preenchido
+             dinamicamente pelo quiz.js, que sorteia 1 entre 3 questionários
+             possíveis cada vez que a página é carregada. -->
         <article aria-labelledby="titulo-atividade">
 
             <header>
@@ -85,35 +88,11 @@
             </header>
 
             <section>
-                <h2>O que é uma receita?</h2>
+                <h2 id="pergunta-titulo">Carregando pergunta...</h2>
                 <p>Selecione a alternativa correta.</p>
 
                 <form aria-label="Alternativas da pergunta">
-
-                    <label for="opcao-a">
-                        <input type="radio" name="resposta" id="opcao-a" value="a">
-                        <span>A</span>
-                        <span>Dinheiro que sai do seu bolso para pagar contas.</span>
-                    </label>
-
-                    <label for="opcao-b" data-correta="true">
-                        <input type="radio" name="resposta" id="opcao-b" value="b">
-                        <span>B</span>
-                        <span>Dinheiro que você recebe com trabalho, vendas ou investimentos.</span>
-                    </label>
-
-                    <label for="opcao-c">
-                        <input type="radio" name="resposta" id="opcao-c" value="c">
-                        <span>C</span>
-                        <span>Dinheiro guardado para emergências.</span>
-                    </label>
-
-                    <label for="opcao-d">
-                        <input type="radio" name="resposta" id="opcao-d" value="d">
-                        <span>D</span>
-                        <span>Dinheiro usado para investir na bolsa de valores.</span>
-                    </label>
-
+                    <!-- Alternativas inseridas via JavaScript -->
                     <button type="submit">Verificar resposta</button>
                 </form>
             </section>
@@ -121,7 +100,7 @@
             <footer>
                 <section>
                     <p>Dica:</p>
-                    <p>Receita é o dinheiro que você recebe. Pode vir do seu salário, de uma venda ou de rendimentos de investimentos.</p>
+                    <p id="dica-texto">—</p>
                 </section>
                 <button type="button">Continuar</button>
             </footer>
