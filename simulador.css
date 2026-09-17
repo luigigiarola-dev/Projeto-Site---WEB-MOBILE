@@ -1,5 +1,5 @@
 /* =========================================================
-   RESET / BASE
+   RESET / BASE, grafico 1.0
    ========================================================= */
 * {
     box-sizing: border-box;
@@ -333,16 +333,7 @@ figure {
 
 #investment-chart {
     width: 100%;
-    height: 160px;
-    display: block;
-}
-
-figcaption {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    font-size: 0.75rem;
-    color: var(--cor-texto-suave);
+    height: 220px;
 }
 
 /* Estatísticas (investido / rendimento / total) */
@@ -630,11 +621,5 @@ body > footer {
 
     #total-value {
         font-size: 1.6rem;
-    }
-
-    figcaption {
-        flex-wrap: wrap;
-        gap: 6px;
-        justify-content: flex-start;
     }
 }
