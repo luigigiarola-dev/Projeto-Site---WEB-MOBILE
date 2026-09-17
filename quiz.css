@@ -277,6 +277,31 @@ form[aria-label="Alternativas da pergunta"] label:has(input:checked) span:first-
     border-color: var(--cor-destaque);
 }
 
+/* Feedback após verificar a resposta */
+form[aria-label="Alternativas da pergunta"] label.alternativa-correta {
+    border-color: #2e7d32;
+    border-width: 2px;
+    background-color: #eaf7ec;
+}
+
+form[aria-label="Alternativas da pergunta"] label.alternativa-correta span:first-of-type {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+    color: var(--cor-fundo);
+}
+
+form[aria-label="Alternativas da pergunta"] label.alternativa-incorreta {
+    border-color: #c62828;
+    border-width: 2px;
+    background-color: #fdecea;
+}
+
+form[aria-label="Alternativas da pergunta"] label.alternativa-incorreta span:first-of-type {
+    background-color: #c62828;
+    border-color: #c62828;
+    color: var(--cor-fundo);
+}
+
 form[aria-label="Alternativas da pergunta"] button {
     margin-top: 8px;
     padding: 14px;
