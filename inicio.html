@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5b3df5" />
+    <title>FinanEdu — educação financeira prática</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="inicio.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="inicio.html" aria-label="FinanEdu, página inicial"
+        ><span class="brand-mark">₣</span>FinanEdu</a
+      >
+      <nav class="top-nav" aria-label="Navegação principal">
+        <a class="active" href="inicio.html">Início</a>
+        <a href="trilhas.html">Trilhas</a>
+        <a href="simulador.html">Simulador</a>
+      </nav>
+      <section class="header-stats">
+        <button class="profile-button" id="profileOpen" title="Abrir perfil">
+          <span class="avatar">👤</span>
+        </button>
+      </section>
+    </header>
+
+    <main>
+      <section aria-live="polite">
+        <section class="page active" id="inicio" aria-labelledby="homeTitle">
+          <header class="intro">
+            <span
+              ><span class="eyebrow">Sua jornada financeira</span>
+              <h1 id="homeTitle">Seu próximo passo começa aqui ✨</h1>
+              <p>Pequenas decisões de hoje constroem uma vida financeira mais leve amanhã.</p></span
+            >
+            <span class="date-pill">📅 <span id="dateLabel">Hoje</span></span>
+          </header>
+          <section class="hero-grid">
+            <article class="card chart-card">
+              <header class="card-heading">
+                <span
+                  ><h2>Seu dinheiro em movimento</h2>
+                  <p>R$ 1.000 aplicados há 12 meses</p></span
+                ><span class="live-badge" id="apiStatus">dados de referência</span>
+              </header>
+              <section
+                class="google-chart"
+                id="homeChart"
+                role="img"
+                aria-label="Gráfico comparativo de rendimentos em 12 meses"
+              ></section>
+              <p class="chart-key">
+                <span style="--key: #6654e8">CDB</span><span style="--key: #25ae72">CDI</span
+                ><span style="--key: #4f9ddd">Meta Selic</span
+                ><span style="--key: #ffad42">FIIs</span
+                ><span style="--key: #9da3b5">Poupança</span>
+              </p>
+            </article>
+          </section>
+          <section class="card goals-section" aria-labelledby="goalsTitle">
+            <header class="section-heading">
+              <span
+                ><h2 id="goalsTitle">Suas metas</h2>
+                <p>Crie metas que façam sentido para você.</p></span
+              ><button class="text-button" type="button" id="goalOpen">+ adicionar meta</button>
+            </header>
+            <p class="empty-state" id="emptyGoals">
+              Ainda não há metas por aqui. Adicione a sua primeira meta para acompanhar o progresso.
+            </p>
+            <ul class="goal-list" id="goalList"></ul>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+      <a class="active" href="inicio.html"><span>⌂</span>Início</a
+      ><a href="trilhas.html"><span>◌</span>Trilhas</a
+      ><a href="simulador.html"><span>⌁</span>Simulador</a>
+    </nav>
+    <footer>© 2026 FinanEdu · Conteúdo educacional; não é recomendação de investimento.</footer>
+    <dialog id="profileDialog">
+      <article>
+        <p class="eyebrow">Seu perfil</p>
+        <h2 id="profileTitle">Personalize sua jornada</h2>
+        <p id="profileCompleted">Nenhuma aula concluída ainda.</p>
+        <form id="profileForm">
+          <label
+            ><span>Como você gostaria de ser chamado?</span
+            ><input
+              id="profileName"
+              type="text"
+              maxlength="40"
+              autocomplete="name"
+              placeholder="Seu nome" /></label
+          ><button class="primary-button" type="submit">Salvar perfil</button
+          ><button class="text-button" type="button" id="profileClose">Fechar</button>
+        </form>
+      </article>
+    </dialog>
+    <dialog id="goalDialog">
+      <article>
+        <p class="eyebrow">Nova anotação</p>
+        <h2>Registre uma meta</h2>
+        <form id="goalForm">
+          <label
+            ><span>Título</span
+            ><input
+              id="goalTitle"
+              type="text"
+              maxlength="70"
+              required
+              placeholder="Ex.: Reserva de emergência" /></label
+          ><label
+            ><span>Anotação</span
+            ><input
+              id="goalNote"
+              type="text"
+              maxlength="130"
+              required
+              placeholder="Ex.: Guardar uma parte do que recebo" /></label
+          ><label><span>Data desejada</span><input id="goalDate" type="date" /></label
+          ><button class="primary-button" type="submit">Adicionar anotação</button
+          ><button class="text-button" type="button" id="goalClose">Cancelar</button>
+        </form>
+      </article>
+    </dialog>
+    <output id="toast" aria-live="polite"></output>
+
+    <script src="inicio.js"></script>
+  </body>
+</html>
