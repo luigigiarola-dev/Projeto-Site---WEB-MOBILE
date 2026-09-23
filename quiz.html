@@ -1,157 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinanEdu - Trilha de Conhecimento</title>
-    <link rel="stylesheet" href="quiz.css">
-</head>
-<body>
-
-    <!-- ===================== TOPO ===================== -->
-    <header>
-        <p>FinanEdu</p>
-        <p>&lt; Trilha de Conhecimento</p>
-
-        <div>
-            <span>
-                <span aria-hidden="true">&#128293;</span>
-                12 dias de sequência
-            </span>
-
-            <span>
-                <span aria-hidden="true">&#128142;</span>
-                450 pontos
-            </span>
-
-            <span aria-hidden="true">&#128276;</span>
-        </div>
-
-        <div>
-            <img src="avatar-placeholder.png" alt="Foto de perfil de Lucas">
-            <span>Olá, Lucas!</span>
-        </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5b3df5" />
+    <title>FinanEdu — educação financeira prática</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body class="focus-mode">
+    <header class="app-header">
+      <a class="brand" href="inicio.html" aria-label="FinanEdu, página inicial"
+        ><span class="brand-mark">₣</span>FinanEdu</a
+      >
+      <nav class="top-nav" aria-label="Navegação principal">
+        <a class="active" href="inicio.html">Início</a>
+        <a href="trilhas.html">Trilhas</a>
+        <a href="simulador.html">Simulador</a>
+      </nav>
+      <section class="header-stats">
+        <button class="profile-button" id="profileOpen" title="Abrir perfil">
+          <span class="avatar">👤</span>
+        </button>
+      </section>
     </header>
 
-    <!-- ===================== NAV LATERAL ===================== -->
-    <nav aria-label="Navegação principal">
-        <a href="index.html">
-            <span aria-hidden="true">&#8962;</span> Início
-        </a>
-        <a href="trilhas.html" aria-current="page">
-            <span aria-hidden="true">&#128218;</span> Trilha
-        </a>
-        <a href="simulador.html">
-            <span aria-hidden="true">&#128203;</span> Simulador
-        </a>
-    </nav>
-
-    <!-- Status de nível (fica junto à navegação lateral) -->
-    <section aria-labelledby="titulo-status-nivel">
-        <h2 id="titulo-status-nivel">Status nível</h2>
-        <p>Novato 20%</p>
-        <progress value="20" max="100">20%</progress>
-        <p>Continue assim!</p>
-    </section>
-
-    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
-    <main id="quiz">
-
-        <!-- Trilha de navegação (breadcrumb) -->
-        <nav aria-label="Trilha de navegação">
-            <span>Fase 1 - Fundamentos</span>
-            <span>&gt;</span>
-            <span>Introdução às Finanças</span>
-            <span>&gt;</span>
-            <span>Aula 1 de 5</span>
-        </nav>
-
-        <!-- Cartão de atividade / quiz -->
-        <!-- O conteúdo abaixo (pergunta, alternativas e dica) é preenchido
-             dinamicamente pelo quiz.js, que sorteia 1 entre 3 questionários
-             possíveis cada vez que a página é carregada. -->
-        <article aria-labelledby="titulo-atividade">
-
-            <header>
-                <span id="titulo-atividade">Atividade</span>
-
-                <!-- Progresso da atividade -->
-                <section aria-label="Progresso da atividade">
-                    <span aria-hidden="true">&#9679;</span>
-                    <span aria-hidden="true">&#9675;</span>
-                    <span aria-hidden="true">&#9675;</span>
-                    <span aria-hidden="true">&#9675;</span>
-                    <span aria-hidden="true">&#9675;</span>
-                </section>
-
-                <span>1 / 5</span>
+    <main>
+      <section aria-live="polite">
+        <section class="page active" id="quiz" aria-labelledby="quizTitle">
+          <article class="focus-page quiz-shell">
+            <header class="focus-top">
+              <a class="icon-close" href="trilhas.html" aria-label="Sair do quiz">×</a
+              ><span class="meter"><i id="quizMeter" style="--value: 0%"></i></span
+              ><span class="focus-step" id="quizPosition">1/3</span>
             </header>
-
-            <section>
-                <h2 id="pergunta-titulo">Carregando pergunta...</h2>
-                <p>Selecione a alternativa correta.</p>
-
-                <form aria-label="Alternativas da pergunta">
-                    <!-- Alternativas inseridas via JavaScript -->
-                    <button type="submit">Verificar resposta</button>
-                </form>
+            <ol class="breadcrumb">
+              <li id="quizPhase">Fase 1 · Fundamentos</li>
+              <li id="quizModule">Introdução às Finanças</li>
+              <li>Quiz rápido</li>
+            </ol>
+            <ol class="stepper" id="quizStepper">
+              <li class="current"></li>
+              <li></li>
+              <li></li>
+            </ol>
+            <section class="quiz-question">
+              <p class="eyebrow">Quiz rápido</p>
+              <h1 id="quizTitle">Pergunta</h1>
+              <section class="answers" id="answers" aria-label="Alternativas"></section>
             </section>
+          </article>
+          <footer class="focus-footer">
+            <p class="feedback" id="feedback"></p>
+            <section class="quiz-actions">
+              <button class="primary-button" id="quizAction" disabled>Próxima</button>
+            </section>
+          </footer>
+        </section>
 
-            <footer>
-                <section>
-                    <p>Dica:</p>
-                    <p id="dica-texto">—</p>
-                </section>
-                <button type="button">Continuar</button>
-            </footer>
-
-        </article>
-
-        <!-- Navegação entre aulas -->
-        <nav aria-label="Navegação entre aulas">
-            <button type="button" disabled>
-                <span>Aula anterior</span>
-            </button>
-
-            <hgroup>
-                <p>Introdução às Finanças</p>
-                <p>1 de 5</p>
-            </hgroup>
-
-            <button type="button">
-                <span>Próxima aula</span>
-            </button>
-        </nav>
-
+<section class="page" id="recompensa" aria-labelledby="rewardTitle">
+          <section class="focus-page reward">
+            <article class="card">
+              <span class="confetti">✓</span>
+              <p class="eyebrow" id="rewardLabel">Resultado salvo</p>
+              <h1 id="rewardTitle">Aula concluída</h1>
+              <p id="rewardCopy">A próxima aula está liberada.</p>
+              <section class="reward-stats">
+                <span><small>Acertos</small><strong id="scoreRate">3 de 3</strong></span>
+              </section>
+              <button class="primary-button" id="rewardAction">Voltar à trilha</button>
+            </article>
+          </section>
+        </section>
+      </section>
     </main>
 
-    <!-- ===================== SIDEBAR DIREITA ===================== -->
-    <section aria-label="Resumo de progresso">
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+      <a class="active" href="inicio.html"><span>⌂</span>Início</a
+      ><a href="trilhas.html"><span>◌</span>Trilhas</a
+      ><a href="simulador.html"><span>⌁</span>Simulador</a>
+    </nav>
+    <footer>© 2026 FinanEdu · Conteúdo educacional; não é recomendação de investimento.</footer>
+    <dialog id="profileDialog">
+      <article>
+        <p class="eyebrow">Seu perfil</p>
+        <h2 id="profileTitle">Personalize sua jornada</h2>
+        <p id="profileCompleted">Nenhuma aula concluída ainda.</p>
+        <form id="profileForm">
+          <label
+            ><span>Como você gostaria de ser chamado?</span
+            ><input
+              id="profileName"
+              type="text"
+              maxlength="40"
+              autocomplete="name"
+              placeholder="Seu nome" /></label
+          ><button class="primary-button" type="submit">Salvar perfil</button
+          ><button class="text-button" type="button" id="profileClose">Fechar</button>
+        </form>
+      </article>
+    </dialog>
+    <dialog id="goalDialog">
+      <article>
+        <p class="eyebrow">Nova anotação</p>
+        <h2>Registre uma meta</h2>
+        <form id="goalForm">
+          <label
+            ><span>Título</span
+            ><input
+              id="goalTitle"
+              type="text"
+              maxlength="70"
+              required
+              placeholder="Ex.: Reserva de emergência" /></label
+          ><label
+            ><span>Anotação</span
+            ><input
+              id="goalNote"
+              type="text"
+              maxlength="130"
+              required
+              placeholder="Ex.: Guardar uma parte do que recebo" /></label
+          ><label><span>Data desejada</span><input id="goalDate" type="date" /></label
+          ><button class="primary-button" type="submit">Adicionar anotação</button
+          ><button class="text-button" type="button" id="goalClose">Cancelar</button>
+        </form>
+      </article>
+    </dialog>
+    <output id="toast" aria-live="polite"></output>
 
-        <article aria-labelledby="titulo-sequencia">
-            <hgroup>
-                <p id="titulo-sequencia">12 D</p>
-                <p>Sequência</p>
-            </hgroup>
-            <p>Continue assim!</p>
-        </article>
-
-        <article aria-labelledby="titulo-meta-diaria">
-            <p id="titulo-meta-diaria">Meta diária</p>
-            <section>
-                <progress value="20" max="100">20%</progress>
-                <span>20%</span>
-            </section>
-            <p>Estude mais 15 minutos para atingir sua meta!</p>
-        </article>
-
-    </section>
-
-    <!-- ===================== FOOTER ===================== -->
-    <footer>
-        <p>&copy; 2024 FinanEdu. Todos os direitos reservados.</p>
-    </footer>
-
-    <script src="quiz.js" defer></script>
-</body>
+    <script src="quiz.js"></script>
+  </body>
 </html>
