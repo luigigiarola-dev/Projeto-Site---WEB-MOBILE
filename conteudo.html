@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5b3df5" />
+    <title>FinanEdu — educação financeira prática</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="conteudo.css" />
+  </head>
+  <body class="focus-mode">
+    <header class="app-header">
+      <a class="brand" href="inicio.html" aria-label="FinanEdu, página inicial"
+        ><span class="brand-mark">₣</span>FinanEdu</a
+      >
+      <nav class="top-nav" aria-label="Navegação principal">
+        <a class="active" href="inicio.html">Início</a>
+        <a href="trilhas.html">Trilhas</a>
+        <a href="simulador.html">Simulador</a>
+      </nav>
+      <section class="header-stats">
+        <button class="profile-button" id="profileOpen" title="Abrir perfil">
+          <span class="avatar">👤</span>
+        </button>
+      </section>
+    </header>
+
+    <main>
+      <section aria-live="polite">
+        <section class="page active" id="aula" aria-labelledby="lessonTitle">
+          <article class="focus-page">
+            <header class="focus-top">
+              <a class="icon-close" href="trilhas.html" aria-label="Voltar para trilhas">
+                ×</a
+              ><span class="meter"><i style="--value: 8%"></i></span
+              ><span class="focus-step">Aula 1 de 5</span>
+            </header>
+            <section class="card lesson-content">
+              <span class="eyebrow" id="lessonPhase">Fase 1 · Fundamentos</span>
+              <h1 id="lessonTitle">O que é investir?</h1>
+              <p>
+                Investir não é só guardar dinheiro. É escolher um caminho para que ele
+                <strong>trabalhe com você</strong> ao longo do tempo.
+              </p>
+              <span class="lesson-illustration" aria-hidden="true">🐷 ✨</span>
+              <p>
+                Ao deixar todo o dinheiro parado, a inflação pode diminuir o que ele compra. Com
+                investimentos adequados aos seus objetivos, você busca preservar e aumentar seu
+                poder de compra.
+              </p>
+              <p>
+                Não precisa começar com muito. <strong>Constância, informação e tempo</strong> são
+                os três ingredientes mais importantes nessa jornada.
+              </p>
+            </section>
+          </article>
+          <footer class="focus-footer">
+            <button class="primary-button" id="continueQuiz">Continuar para o quiz</button>
+          </footer>
+        </section>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+      <a class="active" href="inicio.html"><span>⌂</span>Início</a
+      ><a href="trilhas.html"><span>◌</span>Trilhas</a
+      ><a href="simulador.html"><span>⌁</span>Simulador</a>
+    </nav>
+    <footer>© 2026 FinanEdu · Conteúdo educacional; não é recomendação de investimento.</footer>
+    <dialog id="profileDialog">
+      <article>
+        <p class="eyebrow">Seu perfil</p>
+        <h2 id="profileTitle">Personalize sua jornada</h2>
+        <p id="profileCompleted">Nenhuma aula concluída ainda.</p>
+        <form id="profileForm">
+          <label
+            ><span>Como você gostaria de ser chamado?</span
+            ><input
+              id="profileName"
+              type="text"
+              maxlength="40"
+              autocomplete="name"
+              placeholder="Seu nome" /></label
+          ><button class="primary-button" type="submit">Salvar perfil</button
+          ><button class="text-button" type="button" id="profileClose">Fechar</button>
+        </form>
+      </article>
+    </dialog>
+    <dialog id="goalDialog">
+      <article>
+        <p class="eyebrow">Nova anotação</p>
+        <h2>Registre uma meta</h2>
+        <form id="goalForm">
+          <label
+            ><span>Título</span
+            ><input
+              id="goalTitle"
+              type="text"
+              maxlength="70"
+              required
+              placeholder="Ex.: Reserva de emergência" /></label
+          ><label
+            ><span>Anotação</span
+            ><input
+              id="goalNote"
+              type="text"
+              maxlength="130"
+              required
+              placeholder="Ex.: Guardar uma parte do que recebo" /></label
+          ><label><span>Data desejada</span><input id="goalDate" type="date" /></label
+          ><button class="primary-button" type="submit">Adicionar anotação</button
+          ><button class="text-button" type="button" id="goalClose">Cancelar</button>
+        </form>
+      </article>
+    </dialog>
+    <output id="toast" aria-live="polite"></output>
+
+    <script src="conteudo.js"></script>
+  </body>
+</html>
