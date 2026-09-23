@@ -1,184 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinanEdu - Trilha de Conhecimento</title>
-    <link rel="stylesheet" href="trilhas.css">
-</head>
-<body>
-
-    <!-- ===================== HEADER ===================== -->
-    <header>
-        <p>FinanEdu</p>
-        <p>Trilha de Conhecimento</p>
-
-        <div>
-            <span>
-                <span aria-hidden="true">&#128293;</span>
-                12 dias de sequência
-            </span>
-
-            <span>
-                <span aria-hidden="true">&#128142;</span>
-                450 pontos
-            </span>
-
-            <span aria-hidden="true">&#128276;</span>
-        </div>
-
-        <div>
-            <img src="avatar-placeholder.png" alt="Foto de perfil de Lucas">
-            <span>Olá, Lucas!</span>
-        </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5b3df5" />
+    <title>FinanEdu — educação financeira prática</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="trilhas.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="inicio.html" aria-label="FinanEdu, página inicial"
+        ><span class="brand-mark">₣</span>FinanEdu</a
+      >
+      <nav class="top-nav" aria-label="Navegação principal">
+        <a href="inicio.html">Início</a>
+        <a class="active" href="trilhas.html">Trilhas</a>
+        <a href="simulador.html">Simulador</a>
+      </nav>
+      <section class="header-stats">
+        <button class="profile-button" id="profileOpen" title="Abrir perfil">
+          <span class="avatar">👤</span>
+        </button>
+      </section>
     </header>
 
-    <!-- ===================== NAV LATERAL ===================== -->
-    <nav>
-        <a href="index.html">
-            <span aria-hidden="true">&#8962;</span> Início
-        </a>
-        <a href="trilhas.html" aria-current="page">
-            <span aria-hidden="true">&#128218;</span> Trilha
-        </a>
-        <a href="simulador.html">
-            <span aria-hidden="true">&#128203;</span> Simulador
-        </a>
-
-        <section aria-labelledby="status-nivel">
-            <h2 id="status-nivel">TRILHA</h2>
-            <p>NOVATO 20%</p>
-            <progress value="20" max="100">20%</progress>
+    <main>
+      <section aria-live="polite">
+        <section class="page active" id="trilhas" aria-labelledby="trailTitle">
+          <header class="intro">
+            <span
+              ><span class="eyebrow">Seu caminho</span>
+              <h1 id="trailTitle">Sua trilha de evolução</h1>
+              <p>Complete uma etapa por vez e veja o próximo passo se iluminar.</p></span
+            ><span class="date-pill" id="trailLevel">🌱 Iniciante</span>
+          </header>
+          <nav class="phase-filters" aria-label="Filtrar fase da trilha">
+            <button class="active" data-phase="all">Toda a trilha</button
+            ><button data-phase="1">Fase 1 · Fundamentos</button
+            ><button data-phase="2">Fase 2 · Planejamento</button
+            ><button data-phase="3">Fase 3 · Estratégia</button>
+          </nav>
+          <section class="trail-layout">
+            <article class="card map-card">
+              <header class="section-heading">
+                <span
+                  ><h2>Mapa de quizzes</h2>
+                  <p>Toque na próxima etapa colorida para iniciar um quiz rápido.</p></span
+                ><span class="tag">3 perguntas por etapa</span>
+              </header>
+              <ol class="path-map" id="pathMap" aria-label="Mapa de módulos"></ol>
+            </article>
+          </section>
         </section>
-    </nav>
-
-    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
-    <main id="trilha">
-
-        <h1>Trilha de Conhecimento</h1>
-
-        <!-- Nível atual e filtros de nível -->
-        <section aria-labelledby="titulo-nivel">
-            <h2 id="titulo-nivel">
-                <span aria-hidden="true">&#127942;</span> NÍVEL ATUAL: INICIANTE
-            </h2>
-
-            <nav aria-label="Filtro de nível">
-                <a href="#fase1" aria-current="true">
-                    <span aria-hidden="true">&#10003;</span> Iniciante
-                </a>
-                <a href="#fase2">
-                    <span aria-hidden="true">&#128274;</span> Intermediário
-                </a>
-                <a href="#fase3">
-                    <span aria-hidden="true">&#128274;</span> Avançado
-                </a>
-            </nav>
-        </section>
-
-        <!-- FASE 1 - FUNDAMENTOS -->
-        <section id="fase1" aria-labelledby="titulo-fase1">
-            <h2 id="titulo-fase1">FASE 1 · FUNDAMENTOS</h2>
-
-            <ol>
-                <li>
-                    <span aria-hidden="true">&#128176;</span>
-                    <h3>Introdução às Finanças</h3>
-                    <p>5/5 aulas · 100%</p>
-                    <progress value="5" max="5">5 de 5 aulas</progress>
-                    <a href="quiz.html" class="botao-modulo">Revisar quiz</a>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128176;</span>
-                    <h3>Orçamento Pessoal</h3>
-                    <p>3/6 aulas</p>
-                    <progress value="3" max="6">3 de 6 aulas</progress>
-                    <a href="quiz.html" class="botao-modulo">Continuar</a>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Investimentos Básicos</h3>
-                    <p>0/6 aulas</p>
-                    <progress value="0" max="6">0 de 6 aulas</progress>
-                    <a href="quiz.html" class="botao-modulo" aria-disabled="true">Bloqueado</a>
-                </li>
-            </ol>
-        </section>
-
-        <!-- FASE 2 - PLANEJAMENTO -->
-        <section id="fase2" aria-labelledby="titulo-fase2">
-            <h2 id="titulo-fase2">FASE 2 · PLANEJAMENTO</h2>
-
-            <ol>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Gestão de Risco</h3>
-                    <p>0/5 aulas</p>
-                    <progress value="0" max="5">0 de 5 aulas</progress>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Renda Fixa vs Variável</h3>
-                    <p>0/6 aulas</p>
-                    <progress value="0" max="6">0 de 6 aulas</progress>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Reserva de Emergência</h3>
-                    <p>0/5 aulas</p>
-                    <progress value="0" max="5">0 de 5 aulas</progress>
-                </li>
-            </ol>
-        </section>
-
-        <!-- FASE 3 - ESTRATÉGIA AVANÇADA -->
-        <section id="fase3" aria-labelledby="titulo-fase3">
-            <h2 id="titulo-fase3">FASE 3 · ESTRATÉGIA AVANÇADA</h2>
-
-            <ol>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Diversificação</h3>
-                    <p>0/6 aulas</p>
-                    <progress value="0" max="6">0 de 6 aulas</progress>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Ações &amp; Funds</h3>
-                    <p>0/8 aulas</p>
-                    <progress value="0" max="8">0 de 8 aulas</progress>
-                </li>
-                <li>
-                    <span aria-hidden="true">&#128274;</span>
-                    <h3>Independência Financeira</h3>
-                    <p>0/10 aulas</p>
-                    <progress value="0" max="10">0 de 10 aulas</progress>
-                </li>
-            </ol>
-        </section>
-
+      </section>
     </main>
 
-    <!-- ===================== SIDEBAR DIREITA ===================== -->
-    <section aria-label="Resumo de sequência e meta diária">
-        <section aria-labelledby="titulo-sequencia">
-            <h2 id="titulo-sequencia">
-                <span aria-hidden="true">&#128293;</span> 12 D SEQUÊNCIA
-            </h2>
-            <p>DIAS DE SEQUÊNCIA</p>
-        </section>
+    <nav class="mobile-nav" aria-label="Navegação móvel">
+      <a href="inicio.html"><span>⌂</span>Início</a
+      ><a class="active" href="trilhas.html"><span>◌</span>Trilhas</a
+      ><a href="simulador.html"><span>⌁</span>Simulador</a>
+    </nav>
+    <footer>© 2026 FinanEdu · Conteúdo educacional; não é recomendação de investimento.</footer>
+    <dialog id="profileDialog">
+      <article>
+        <p class="eyebrow">Seu perfil</p>
+        <h2 id="profileTitle">Personalize sua jornada</h2>
+        <p id="profileCompleted">Nenhuma aula concluída ainda.</p>
+        <form id="profileForm">
+          <label
+            ><span>Como você gostaria de ser chamado?</span
+            ><input
+              id="profileName"
+              type="text"
+              maxlength="40"
+              autocomplete="name"
+              placeholder="Seu nome" /></label
+          ><button class="primary-button" type="submit">Salvar perfil</button
+          ><button class="text-button" type="button" id="profileClose">Fechar</button>
+        </form>
+      </article>
+    </dialog>
+    <dialog id="goalDialog">
+      <article>
+        <p class="eyebrow">Nova anotação</p>
+        <h2>Registre uma meta</h2>
+        <form id="goalForm">
+          <label
+            ><span>Título</span
+            ><input
+              id="goalTitle"
+              type="text"
+              maxlength="70"
+              required
+              placeholder="Ex.: Reserva de emergência" /></label
+          ><label
+            ><span>Anotação</span
+            ><input
+              id="goalNote"
+              type="text"
+              maxlength="130"
+              required
+              placeholder="Ex.: Guardar uma parte do que recebo" /></label
+          ><label><span>Data desejada</span><input id="goalDate" type="date" /></label
+          ><button class="primary-button" type="submit">Adicionar anotação</button
+          ><button class="text-button" type="button" id="goalClose">Cancelar</button>
+        </form>
+      </article>
+    </dialog>
+    <output id="toast" aria-live="polite"></output>
 
-        <section aria-labelledby="titulo-meta-diaria">
-            <h2 id="titulo-meta-diaria">META DIÁRIA</h2>
-            <progress value="20" max="100">20%</progress>
-            <p>20%</p>
-        </section>
-    </section>
-
-    <!-- ===================== FOOTER ===================== -->
-    <footer>
-        <p>&copy; 2024 FinanEdu. Todos os direitos reservados.</p>
-    </footer>
-
-</body>
+    <script src="trilhas.js"></script>
+  </body>
 </html>
