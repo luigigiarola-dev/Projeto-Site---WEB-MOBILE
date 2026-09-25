@@ -12,16 +12,16 @@
       rel="stylesheet"
     />
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="quiz.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
   <body class="focus-mode">
     <header class="app-header">
-      <a class="brand" href="inicio.html" aria-label="FinanEdu, página inicial"
+      <a class="brand" href="../index.html" aria-label="FinanEdu, página inicial"
         ><span class="brand-mark">₣</span>FinanEdu</a
       >
       <nav class="top-nav" aria-label="Navegação principal">
-        <a class="active" href="inicio.html">Início</a>
-        <a href="trilhas.html">Trilhas</a>
+        <a href="../index.html">Início</a>
+        <a class="active" href="trilhas.html">Trilhas</a>
         <a href="simulador.html">Simulador</a>
       </nav>
       <section class="header-stats">
@@ -36,9 +36,9 @@
         <section class="page active" id="quiz" aria-labelledby="quizTitle">
           <article class="focus-page quiz-shell">
             <header class="focus-top">
-              <a class="icon-close" href="trilhas.html" aria-label="Sair do quiz">×</a
-              ><span class="meter"><i id="quizMeter" style="--value: 0%"></i></span
-              ><span class="focus-step" id="quizPosition">1/3</span>
+              <a class="icon-close" href="trilhas.html" aria-label="Sair do quiz">×</a>
+              <span class="meter"><i id="quizMeter" style="--value: 0%"></i></span>
+              <span class="focus-step" id="quizPosition">1/3</span>
             </header>
             <ol class="breadcrumb">
               <li id="quizPhase">Fase 1 · Fundamentos</li>
@@ -64,7 +64,7 @@
           </footer>
         </section>
 
-<section class="page" id="recompensa" aria-labelledby="rewardTitle">
+        <section class="page" id="recompensa" aria-labelledby="rewardTitle">
           <section class="focus-page reward">
             <article class="card">
               <span class="confetti">✓</span>
@@ -82,9 +82,9 @@
     </main>
 
     <nav class="mobile-nav" aria-label="Navegação móvel">
-      <a class="active" href="inicio.html"><span>⌂</span>Início</a
-      ><a href="trilhas.html"><span>◌</span>Trilhas</a
-      ><a href="simulador.html"><span>⌁</span>Simulador</a>
+      <a href="../index.html"><span>⌂</span>Início</a>
+      <a class="active" href="trilhas.html"><span>◌</span>Trilhas</a>
+      <a href="simulador.html"><span>⌁</span>Simulador</a>
     </nav>
     <footer>© 2026 FinanEdu · Conteúdo educacional; não é recomendação de investimento.</footer>
     <dialog id="profileDialog">
@@ -94,15 +94,17 @@
         <p id="profileCompleted">Nenhuma aula concluída ainda.</p>
         <form id="profileForm">
           <label
-            ><span>Como você gostaria de ser chamado?</span
-            ><input
+            ><span>Como você gostaria de ser chamado?</span>
+            <input
               id="profileName"
               type="text"
               maxlength="40"
               autocomplete="name"
-              placeholder="Seu nome" /></label
-          ><button class="primary-button" type="submit">Salvar perfil</button
-          ><button class="text-button" type="button" id="profileClose">Fechar</button>
+              placeholder="Seu nome"
+            />
+          </label>
+          <button class="primary-button" type="submit">Salvar perfil</button>
+          <button class="text-button" type="button" id="profileClose">Fechar</button>
         </form>
       </article>
     </dialog>
@@ -112,29 +114,33 @@
         <h2>Registre uma meta</h2>
         <form id="goalForm">
           <label
-            ><span>Título</span
-            ><input
+            ><span>Título</span>
+            <input
               id="goalTitle"
               type="text"
               maxlength="70"
               required
-              placeholder="Ex.: Reserva de emergência" /></label
-          ><label
-            ><span>Anotação</span
-            ><input
+              placeholder="Ex.: Reserva de emergência"
+            />
+          </label>
+          <label
+            ><span>Anotação</span>
+            <input
               id="goalNote"
               type="text"
               maxlength="130"
               required
-              placeholder="Ex.: Guardar uma parte do que recebo" /></label
-          ><label><span>Data desejada</span><input id="goalDate" type="date" /></label
-          ><button class="primary-button" type="submit">Adicionar anotação</button
-          ><button class="text-button" type="button" id="goalClose">Cancelar</button>
+              placeholder="Ex.: Guardar uma parte do que recebo"
+            />
+          </label>
+          <label><span>Data desejada</span><input id="goalDate" type="date" /></label>
+          <button class="primary-button" type="submit">Adicionar anotação</button>
+          <button class="text-button" type="button" id="goalClose">Cancelar</button>
         </form>
       </article>
     </dialog>
     <output id="toast" aria-live="polite"></output>
 
-    <script src="quiz.js"></script>
+    <script src="../assets/js/app.js"></script>
   </body>
 </html>

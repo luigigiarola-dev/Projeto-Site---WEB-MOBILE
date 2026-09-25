@@ -12,17 +12,17 @@
       rel="stylesheet"
     />
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="conteudo.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body class="focus-mode">
+  <body>
     <header class="app-header">
-      <a class="brand" href="inicio.html" aria-label="FinanEdu, página inicial"
+      <a class="brand" href="index.html" aria-label="FinanEdu, página inicial"
         ><span class="brand-mark">₣</span>FinanEdu</a
       >
       <nav class="top-nav" aria-label="Navegação principal">
-        <a class="active" href="inicio.html">Início</a>
-        <a href="trilhas.html">Trilhas</a>
-        <a href="simulador.html">Simulador</a>
+        <a class="active" href="index.html">Início</a>
+        <a href="pages/trilhas.html">Trilhas</a>
+        <a href="pages/simulador.html">Simulador</a>
       </nav>
       <section class="header-stats">
         <button class="profile-button" id="profileOpen" title="Abrir perfil">
@@ -33,44 +33,57 @@
 
     <main>
       <section aria-live="polite">
-        <section class="page active" id="aula" aria-labelledby="lessonTitle">
-          <article class="focus-page">
-            <header class="focus-top">
-              <a class="icon-close" href="trilhas.html" aria-label="Voltar para trilhas">
-                ×</a
-              ><span class="meter"><i style="--value: 8%"></i></span
-              ><span class="focus-step">Aula 1 de 5</span>
+        <section class="page active" id="inicio" aria-labelledby="homeTitle">
+          <header class="intro">
+            <span
+              ><span class="eyebrow">Sua jornada financeira</span>
+              <h1 id="homeTitle">Seu próximo passo começa aqui ✨</h1>
+              <p>Pequenas decisões de hoje constroem uma vida financeira mais leve amanhã.</p></span
+            >
+            <span class="date-pill">📅 <span id="dateLabel">Hoje</span></span>
+          </header>
+          <section class="hero-grid">
+            <article class="card chart-card">
+              <header class="card-heading">
+                <span
+                  ><h2>Seu dinheiro em movimento</h2>
+                  <p>R$ 1.000 aplicados há 12 meses</p></span
+                ><span class="live-badge" id="apiStatus">dados de referência</span>
+              </header>
+              <section
+                class="google-chart"
+                id="homeChart"
+                role="img"
+                aria-label="Gráfico comparativo de rendimentos em 12 meses"
+              ></section>
+              <p class="chart-key">
+                <span style="--key: #6654e8">CDB</span><span style="--key: #25ae72">CDI</span
+                ><span style="--key: #4f9ddd">Meta Selic</span
+                ><span style="--key: #ffad42">FIIs</span
+                ><span style="--key: #9da3b5">Poupança</span>
+              </p>
+            </article>
+          </section>
+          <section class="card goals-section" aria-labelledby="goalsTitle">
+            <header class="section-heading">
+              <span
+                ><h2 id="goalsTitle">Suas metas</h2>
+                <p>Crie metas que façam sentido para você.</p></span
+              ><button class="text-button" type="button" id="goalOpen">+ adicionar meta</button>
             </header>
-            <section class="card lesson-content">
-              <span class="eyebrow" id="lessonPhase">Fase 1 · Fundamentos</span>
-              <h1 id="lessonTitle">O que é investir?</h1>
-              <p>
-                Investir não é só guardar dinheiro. É escolher um caminho para que ele
-                <strong>trabalhe com você</strong> ao longo do tempo.
-              </p>
-              <span class="lesson-illustration" aria-hidden="true">🐷 ✨</span>
-              <p>
-                Ao deixar todo o dinheiro parado, a inflação pode diminuir o que ele compra. Com
-                investimentos adequados aos seus objetivos, você busca preservar e aumentar seu
-                poder de compra.
-              </p>
-              <p>
-                Não precisa começar com muito. <strong>Constância, informação e tempo</strong> são
-                os três ingredientes mais importantes nessa jornada.
-              </p>
-            </section>
-          </article>
-          <footer class="focus-footer">
-            <button class="primary-button" id="continueQuiz">Continuar para o quiz</button>
-          </footer>
+            <p class="empty-state" id="emptyGoals">
+              Ainda não há metas por aqui. Adicione a sua primeira meta para acompanhar o progresso.
+            </p>
+            <ul class="goal-list" id="goalList"></ul>
+          </section>
         </section>
       </section>
     </main>
 
     <nav class="mobile-nav" aria-label="Navegação móvel">
-      <a class="active" href="inicio.html"><span>⌂</span>Início</a
-      ><a href="trilhas.html"><span>◌</span>Trilhas</a
-      ><a href="simulador.html"><span>⌁</span>Simulador</a>
+      <a class="active" href="index.html"><span>⌂</span>Início</a
+      ><a href="pages/trilhas.html"><span>◌</span>Trilhas</a
+      ><a href="pages/simulador.html"><span>⌁</span>Simulador</a>
     </nav>
     <footer>© 2026 FinanEdu · Conteúdo educacional; não é recomendação de investimento.</footer>
     <dialog id="profileDialog">
@@ -121,6 +134,6 @@
     </dialog>
     <output id="toast" aria-live="polite"></output>
 
-    <script src="conteudo.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
