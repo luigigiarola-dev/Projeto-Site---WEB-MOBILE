@@ -1,0 +1,37 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  border-radius: 999px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.pill {
+  padding: 6px 14px;
+  color: var(--purple, #6654e8);
+  background: var(--lilac, #edeaff);
+  border: 1px solid rgba(102, 84, 232, 0.15);
+}
+
+.tag {
+  padding: 4px 10px;
+  color: var(--muted, #727891);
+  background: #f0f1f7;
+  font-size: 11px;
+}
+
+.live {
+  padding: 4px 10px;
+  color: var(--green-dark, #138b57);
+  background: var(--mint, #dff8ee);
+  border: 1px solid rgba(37, 174, 114, 0.2);
+}
+
+.phase {
+  padding: 5px 12px;
+  color: var(--ink, #1f2540);
+  background: #fff;
+  border: 1px solid var(--line, #e7e8f0);
+}

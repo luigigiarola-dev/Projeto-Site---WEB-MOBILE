@@ -1,0 +1,302 @@
+{
+  "m1": [
+    {
+      "id": "m1_q1",
+      "q": "Qual é a principal diferença entre poupar e investir?",
+      "options": [
+        "Poupar é guardar; investir busca multiplicar",
+        "São exatamente a mesma coisa",
+        "Poupar sempre tem risco; investir nunca",
+        "Investir é somente para quem é rico"
+      ],
+      "correct": 0,
+      "tip": "Poupar separa dinheiro. Investir aplica esse dinheiro com expectativa de rendimento."
+    },
+    {
+      "id": "m1_q2",
+      "q": "Por que deixar dinheiro parado pode ser um problema?",
+      "options": [
+        "Porque a inflação pode reduzir seu poder de compra",
+        "Porque o banco sempre cobra multa",
+        "Porque o dinheiro desaparece",
+        "Porque guardar é proibido"
+      ],
+      "correct": 0,
+      "tip": "A inflação faz os preços subirem: com o mesmo valor, você pode comprar menos no futuro."
+    },
+    {
+      "id": "m1_q3",
+      "q": "O que deve vir antes de escolher um investimento?",
+      "options": [
+        "O objetivo e o prazo do dinheiro",
+        "A indicação de um desconhecido",
+        "O nome mais famoso",
+        "A cor do aplicativo"
+      ],
+      "correct": 0,
+      "tip": "Objetivo, prazo e tolerância a risco ajudam a encontrar opções mais adequadas."
+    },
+    {
+      "id": "m1_q4",
+      "q": "Para que servem os juros compostos?",
+      "options": [
+        "Para render sobre valores já rendidos",
+        "Para impedir aportes mensais",
+        "Para zerar a inflação",
+        "Para evitar planejamento"
+      ],
+      "correct": 0,
+      "tip": "Nos juros compostos, os rendimentos também passam a render com o tempo."
+    }
+  ],
+  "m2": [
+    {
+      "id": "m2_q1",
+      "q": "Qual é a função principal de um orçamento pessoal?",
+      "options": [
+        "Dar visibilidade para receitas e gastos",
+        "Fazer compras automaticamente",
+        "Eliminar todas as contas",
+        "Escolher ações"
+      ],
+      "correct": 0,
+      "tip": "Um orçamento mostra para onde o dinheiro vai e ajuda a fazer escolhas conscientes."
+    },
+    {
+      "id": "m2_q2",
+      "q": "Qual gasto costuma merecer revisão primeiro?",
+      "options": [
+        "O que se repete e não faz mais sentido",
+        "Somente gastos grandes",
+        "Nenhum gasto fixo",
+        "Apenas presentes"
+      ],
+      "correct": 0,
+      "tip": "Pequenos gastos recorrentes somados pesam bastante no final do mês."
+    },
+    {
+      "id": "m2_q3",
+      "q": "Quando é melhor registrar um gasto?",
+      "options": [
+        "Assim que ele acontecer",
+        "Somente no fim do ano",
+        "Apenas se for caro",
+        "Nunca"
+      ],
+      "correct": 0,
+      "tip": "Registrar perto do momento da compra evita esquecimentos."
+    },
+    {
+      "id": "m2_q4",
+      "q": "Uma boa regra para o orçamento é:",
+      "options": [
+        "Planejar antes de gastar",
+        "Gastar antes de receber",
+        "Ignorar contas futuras",
+        "Copiar o orçamento de outra pessoa"
+      ],
+      "correct": 0,
+      "tip": "O orçamento é pessoal: deve refletir sua realidade e seus objetivos."
+    }
+  ],
+  "m3": [
+    {
+      "id": "m3_q1",
+      "q": "Qual é o objetivo de uma reserva de emergência?",
+      "options": [
+        "Cobrir imprevistos sem recorrer a dívidas",
+        "Aumentar o risco da carteira",
+        "Comprar itens por impulso",
+        "Substituir todo investimento"
+      ],
+      "correct": 0,
+      "tip": "A reserva oferece segurança e tranquilidade diante de situações inesperadas."
+    },
+    {
+      "id": "m3_q2",
+      "q": "Uma reserva de emergência deve priorizar:",
+      "options": [
+        "Liquidez e segurança",
+        "Promessas de retorno alto",
+        "Dinheiro inacessível por anos",
+        "Apenas ações voláteis"
+      ],
+      "correct": 0,
+      "tip": "Em uma emergência, o acesso rápido e seguro ao dinheiro é essencial."
+    },
+    {
+      "id": "m3_q3",
+      "q": "Qual situação combina com o uso da reserva de emergência?",
+      "options": [
+        "Um conserto urgente de saúde ou casa",
+        "Uma viagem de férias",
+        "Uma compra por moda",
+        "Um presente de aniversário"
+      ],
+      "correct": 0,
+      "tip": "Reservas existem para imprevistos necessários, não para desejos de consumo."
+    },
+    {
+      "id": "m3_q4",
+      "q": "Como construir uma reserva de emergência?",
+      "options": [
+        "Com aportes possíveis e frequentes",
+        "Esperando sobrar muito dinheiro",
+        "Usando empréstimos com juros altos",
+        "Aplicando todo o salário de uma vez"
+      ],
+      "correct": 0,
+      "tip": "A constância mensal torna o objetivo atingível e sustentável."
+    }
+  ],
+  "m4": [
+    {
+      "id": "m4_q1",
+      "q": "O que costuma aumentar junto com a chance de retorno?",
+      "options": [
+        "O risco",
+        "A garantia",
+        "A liquidez sempre",
+        "A previsibilidade"
+      ],
+      "correct": 0,
+      "tip": "Retorno e risco caminham juntos no mercado financeiro."
+    },
+    {
+      "id": "m4_q2",
+      "q": "Renda fixa significa:",
+      "options": [
+        "Ter regras de rentabilidade definidas na contratação",
+        "Nunca ter qualquer variação de saldo",
+        "Não poder resgatar o dinheiro nunca",
+        "Ser exatamente igual à poupança"
+      ],
+      "correct": 0,
+      "tip": "As regras de cálculo do rendimento são conhecidas desde o início."
+    },
+    {
+      "id": "m4_q3",
+      "q": "Qual pergunta ajuda a escolher o investimento ideal?",
+      "options": [
+        "Quando vou precisar desse dinheiro?",
+        "Qual tem o nome mais curto?",
+        "Qual foi indicado por um estranho?",
+        "Qual parece mais difícil de entender?"
+      ],
+      "correct": 0,
+      "tip": "Prazo, objetivo e perfil de risco orientam uma boa decisão."
+    },
+    {
+      "id": "m4_q4",
+      "q": "O conceito de diversificação significa:",
+      "options": [
+        "Não concentrar todo o capital em uma única opção",
+        "Aplicar sempre no mesmo produto",
+        "Ignorar os riscos existentes",
+        "Trocar de aplicação todos os dias"
+      ],
+      "correct": 0,
+      "tip": "Distribuir entre diferentes produtos reduz a dependência de um só ativo."
+    }
+  ],
+  "m5": [
+    {
+      "id": "m5_q1",
+      "q": "Uma meta financeira clara inclui:",
+      "options": [
+        "Valor, prazo e objetivo",
+        "Somente desejo vago",
+        "Apenas a opinião dos amigos",
+        "Um produto aleatório"
+      ],
+      "correct": 0,
+      "tip": "Quanto mais específica a meta, mais fácil medir o progresso e montar a estratégia."
+    },
+    {
+      "id": "m5_q2",
+      "q": "Por que separar metas por prazo (curto, médio e longo)?",
+      "options": [
+        "Porque cada prazo exige um nível de risco e liquidez diferente",
+        "Porque todas as aplicações rendem exatamente o mesmo",
+        "Para nunca precisar investir",
+        "Para escolher apenas um único produto"
+      ],
+      "correct": 0,
+      "tip": "Prazos curtos pedem segurança; prazos longos suportam oscilações maiores."
+    },
+    {
+      "id": "m5_q3",
+      "q": "O que ajuda a manter uma meta financeira ativa?",
+      "options": [
+        "Acompanhar o avanço com frequência",
+        "Esquecer a meta logo após anotar",
+        "Mudar de objetivo todos os dias",
+        "Não registrar novos aportes"
+      ],
+      "correct": 0,
+      "tip": "Acompanhar a evolução mantém a motivação e permite ajustes de rota."
+    },
+    {
+      "id": "m5_q4",
+      "q": "Um aporte programado/automático ajuda porque:",
+      "options": [
+        "Transforma a disciplina em um hábito automático",
+        "Garante retorno milionário imediato",
+        "Elimina todo e qualquer risco",
+        "Substitui a necessidade de planejar"
+      ],
+      "correct": 0,
+      "tip": "Automatizar seus investimentos evita esquecimentos e gastos por impulso."
+    }
+  ],
+  "m6": [
+    {
+      "id": "m6_q1",
+      "q": "Qual é o principal objetivo de uma carteira diversificada?",
+      "options": [
+        "Combinar ativos com comportamentos diferentes para equilibrar riscos",
+        "Apostar tudo em uma única ação da moda",
+        "Evitar qualquer tipo de planejamento financeiro",
+        "Comprar apenas o que subiu ontem"
+      ],
+      "correct": 0,
+      "tip": "Ativos diferentes reagem de maneiras opostas a diferentes cenários econômicos."
+    },
+    {
+      "id": "m6_q2",
+      "q": "Quando é recomendado rebalancear uma carteira de investimentos?",
+      "options": [
+        "Quando seus objetivos, prazos ou percentuais planejados mudarem",
+        "A cada notícia alarmista da internet",
+        "Apenas quando houver lucro rápido",
+        "Nunca mais mexer"
+      ],
+      "correct": 0,
+      "tip": "Revisões periódicas mantêm a carteira alinhada aos seus objetivos pessoais."
+    },
+    {
+      "id": "m6_q3",
+      "q": "A diversificação elimina 100% das perdas?",
+      "options": [
+        "Não, mas ajuda a diluir e controlar os riscos gerais",
+        "Sim, sempre elimina totalmente",
+        "Apenas se for investido em renda fixa",
+        "Somente em dias úteis"
+      ],
+      "correct": 0,
+      "tip": "Diversificar não anula os riscos de mercado, mas previne perdas catastróficas."
+    },
+    {
+      "id": "m6_q4",
+      "q": "Uma estratégia de investimento de longo prazo deve se basear em:",
+      "options": [
+        "Objetivos claros, consistência e tolerância ao risco",
+        "A última recomendação de rede social",
+        "Palpites rápidos",
+        "Tentativas de adivinhar o topo do mercado"
+      ],
+      "correct": 0,
+      "tip": "A disciplina consistente supera a tentativa de prever o mercado no curto prazo."
+    }
+  ]
+}

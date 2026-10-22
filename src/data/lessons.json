@@ -1,0 +1,158 @@
+{
+  "m1": {
+    "id": "m1",
+    "phase": 1,
+    "phaseName": "Fundamentos",
+    "step": 1,
+    "totalSteps": 6,
+    "title": "O que é investir?",
+    "illustration": "🐷 ✨",
+    "paragraphs": [
+      "Investir não é só guardar dinheiro em um cofre ou na conta corrente. É escolher um caminho planejado para que seus recursos trabalhem com você e para você ao longo do tempo.",
+      "Ao deixar todo o dinheiro parado sem rendimento, a inflação corrói seu poder de compra gradativamente. Com investimentos alinhados aos seus objetivos, você busca preservar e multiplicar seu patrimônio.",
+      "Não precisa começar com grandes quantias. Constância, informação clara e o tempo são os três ingredientes mais decisivos para transformar pequenas economias em segurança sólida."
+    ],
+    "highlights": [
+      {
+        "icon": "🌱",
+        "title": "Poupar vs. Investir",
+        "text": "Poupar é o ato de gastar menos do que ganha. Investir é colocar esse saldo poupado para gerar rendimentos."
+      },
+      {
+        "icon": "⏳",
+        "title": "Efeito do Tempo",
+        "text": "Quanto mais cedo você começa, mais expressiva é a ação dos juros compostos a seu favor."
+      }
+    ]
+  },
+  "m2": {
+    "id": "m2",
+    "phase": 1,
+    "phaseName": "Fundamentos",
+    "step": 2,
+    "totalSteps": 6,
+    "title": "Orçamento pessoal",
+    "illustration": "🧾 📊",
+    "paragraphs": [
+      "O orçamento é a bússola da sua vida financeira. Ele não serve para limitar tudo o que você gosta, mas para dar clareza absoluta sobre para onde cada centavo está indo.",
+      "Identificar gastos fixos e variáveis ajuda a enxergar ralos financeiros — assinaturas esquecidas, taxas desnecessárias e compras impulsivas que somam valores significativos no final do mês.",
+      "Registrar despesas no momento em que ocorrem cria consciência imediata e previne a sensação de surpresa ao checar o saldo bancário no final do mês."
+    ],
+    "highlights": [
+      {
+        "icon": "🎯",
+        "title": "Regra 50-30-20",
+        "text": "Uma boa referência: 50% para necessidades básicas, 30% para estilo de vida e 20% para poupar/investir."
+      },
+      {
+        "icon": "🔍",
+        "title": "Revisão Periódica",
+        "text": "Revise seus gastos mensalmente para cortar o que não agrega mais valor à sua rotina."
+      }
+    ]
+  },
+  "m3": {
+    "id": "m3",
+    "phase": 2,
+    "phaseName": "Planejamento",
+    "step": 3,
+    "totalSteps": 6,
+    "title": "Reserva de emergência",
+    "illustration": "🏦 🛡️",
+    "paragraphs": [
+      "A reserva de emergência é o alicerce de qualquer plano de investimentos. Ela existe para cobrir eventos imprevistos — como despesas médicas, reparos urgentes ou transições de carreira — sem recorrer a empréstimos caros.",
+      "Para a reserva, o rendimento é secundário: o fundamental é liquidez imediata (poder resgatar no mesmo dia) e segurança máxima do valor principal.",
+      "Geralmente recomenda-se acumular entre 3 a 6 meses do seu custo de vida mensal em aplicações de baixíssimo risco, como Tesouro Selic ou CDBs com liquidez diária."
+    ],
+    "highlights": [
+      {
+        "icon": "⚡",
+        "title": "Liquidez Diária",
+        "text": "O dinheiro da emergência precisa estar disponível quando você precisar, sem carências ou multas."
+      },
+      {
+        "icon": "🧘",
+        "title": "Tranquilidade Mental",
+        "text": "Saber que imprevistos estão cobertos evita decisões desesperadas e resgates antecipados de investimentos longos."
+      }
+    ]
+  },
+  "m4": {
+    "id": "m4",
+    "phase": 2,
+    "phaseName": "Planejamento",
+    "step": 4,
+    "totalSteps": 6,
+    "title": "Opções de investimento",
+    "illustration": "📊 📈",
+    "paragraphs": [
+      "No mercado financeiro, as aplicações dividem-se principalmente em Renda Fixa e Renda Variável. Cada uma possui características próprias de risco, prazo e liquidez.",
+      "Na Renda Fixa, as regras de remuneração são conhecidas no momento do aporte (ex.: 100% do CDI, IPCA + taxa fixa ou prefixado). São ideais para objetivos de curto e médio prazo.",
+      "Na Renda Variável (ações, fundos imobiliários), o retorno não é garantido e oscila com a economia e o desempenho das empresas, oferecendo potencial maior no longo prazo."
+    ],
+    "highlights": [
+      {
+        "icon": "⚖️",
+        "title": "Binômio Risco x Retorno",
+        "text": "Potenciais de retorno mais altos sempre exigem tolerância a maiores oscilações de preço."
+      },
+      {
+        "icon": "🏛️",
+        "title": "FGC (Fundo Garantidor)",
+        "text": "CDBs, LCIs e LCAs contam com garantia do FGC até R$ 250 mil por CPF e instituição."
+      }
+    ]
+  },
+  "m5": {
+    "id": "m5",
+    "phase": 3,
+    "phaseName": "Estratégia",
+    "step": 5,
+    "totalSteps": 6,
+    "title": "Metas financeiras",
+    "illustration": "🎯 🚀",
+    "paragraphs": [
+      "Investir sem um objetivo definido é como navegar sem bússola. Quando cada real investido tem um destino certo, fica muito mais fácil manter a disciplina e resistir ao impulso de gastar.",
+      "Divida suas metas por horizontes de tempo: Curto prazo (até 1 ano, ex.: viagem, IPVA), Médio prazo (2 a 5 anos, ex.: carro, pós-graduação) e Longo prazo (mais de 5 anos, ex.: independência financeira ou imóvel).",
+      "Cada prazo demanda um produto financeiro diferente: produtos voláteis não devem ser usados para dinheiro com data certa no curto prazo."
+    ],
+    "highlights": [
+      {
+        "icon": "🗓️",
+        "title": "Prazos Determinantes",
+        "text": "O prazo define o quanto de oscilação você pode tolerar sem comprometer a realização do sonho."
+      },
+      {
+        "icon": "🤖",
+        "title": "Aporte Programado",
+        "text": "Automatizar a transferência para investimentos no dia do pagamento transforma a poupança em hábito involuntário."
+      }
+    ]
+  },
+  "m6": {
+    "id": "m6",
+    "phase": 3,
+    "phaseName": "Estratégia",
+    "step": 6,
+    "totalSteps": 6,
+    "title": "Diversificação",
+    "illustration": "🌳 🧭",
+    "paragraphs": [
+      "O ditado clássico 'não coloque todos os ovos na mesma cesta' resume a arte da diversificação. Combinar ativos de setores, indexadores e prazos diferentes protege seu patrimônio.",
+      "Quando a taxa básica de juros sobe ou desce, diferentes classes de investimentos reagem de maneiras opostas: enquanto a Renda Fixa pós-fixada acompanha a Selic, ativos prefixados ou ações podem se valorizar em momentos de queda.",
+      "A diversificação inteligente não elimina totalmente os riscos do mercado, mas impede que a crise de uma empresa ou setor destrua suas economias acumuladas."
+    ],
+    "highlights": [
+      {
+        "icon": "🔄",
+        "title": "Rebalanceamento",
+        "text": "De tempos em tempos, realinhe os percentuais da sua carteira para manter os níveis de risco saudáveis."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Blindagem Patrimonial",
+        "text": "A combinação de indexadores (CDI, inflação e moeda forte) protege contra múltiplos cenários econômicos."
+      }
+    ]
+  }
+}

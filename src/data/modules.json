@@ -1,0 +1,56 @@
+[
+  {
+    "id": "m1",
+    "phase": 1,
+    "phaseName": "Fundamentos",
+    "icon": "💡",
+    "title": "Poupar e investir",
+    "short": "O que é investir?",
+    "description": "Entenda a diferença essencial entre acumular e multiplicar seu dinheiro."
+  },
+  {
+    "id": "m2",
+    "phase": 1,
+    "phaseName": "Fundamentos",
+    "icon": "🧾",
+    "title": "Orçamento pessoal",
+    "short": "Organize seus gastos",
+    "description": "Aprenda a mapear receitas, despesas e manter o controle financeiro."
+  },
+  {
+    "id": "m3",
+    "phase": 2,
+    "phaseName": "Planejamento",
+    "icon": "🏦",
+    "title": "Reserva de emergência",
+    "short": "Sua rede de segurança",
+    "description": "Descubra como construir uma proteção contra imprevistos sem entrar em dívidas."
+  },
+  {
+    "id": "m4",
+    "phase": 2,
+    "phaseName": "Planejamento",
+    "icon": "📊",
+    "title": "Opções de investimento",
+    "short": "Risco e retorno",
+    "description": "Explore as principais classes de ativos: renda fixa, títulos públicos e fundos."
+  },
+  {
+    "id": "m5",
+    "phase": 3,
+    "phaseName": "Estratégia",
+    "icon": "🎯",
+    "title": "Metas financeiras",
+    "short": "Planeje seus objetivos",
+    "description": "Defina metas de curto, médio e longo prazo com prazos realistas e métricas."
+  },
+  {
+    "id": "m6",
+    "phase": 3,
+    "phaseName": "Estratégia",
+    "icon": "🌳",
+    "title": "Diversificação",
+    "short": "Monte uma estratégia",
+    "description": "Distribua seus aportes com sabedoria para maximizar retorno com risco equilibrado."
+  }
+]

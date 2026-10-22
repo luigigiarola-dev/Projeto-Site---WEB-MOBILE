@@ -1,0 +1,9 @@
+{
+  "cdiMonthly": 0.009,
+  "selicMonthly": 0.009,
+  "savingsMonthly": 0.005,
+  "annualCdi": 11.25,
+  "annualSelic": 11.25,
+  "annualSavings": 6.17,
+  "description": "Taxas referenciais do mercado financeiro brasileiro para projeções e comparativos"
+}
