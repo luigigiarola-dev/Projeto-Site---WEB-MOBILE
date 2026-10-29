@@ -1,50 +1,26 @@
-import { notFound } from "next/navigation";
-import lessonsData from "@/data/lessons.json";
-import modulesData from "@/data/modules.json";
-import FocusHeader from "@/components/features/conteudo/FocusHeader";
-import LessonArticle from "@/components/features/conteudo/LessonArticle";
-import FocusFooter from "@/components/features/conteudo/FocusFooter";
+import ConteudoClient from "@/components/features/conteudo/ConteudoClient";
 
 export async function generateStaticParams() {
-  return modulesData.map((m) => ({
-    moduloId: m.id,
-  }));
+  return [
+    { moduloId: "m1" },
+    { moduloId: "m2" },
+    { moduloId: "m3" },
+    { moduloId: "m4" },
+    { moduloId: "m5" },
+    { moduloId: "m6" },
+  ];
 }
 
 export async function generateMetadata({ params }) {
   const { moduloId } = await params;
-  const lesson = lessonsData[moduloId];
-  if (!lesson) {
-    return { title: "Aula não encontrada — FinEdu" };
-  }
   return {
-    title: `${lesson.title} — FinEdu`,
-    description: `Aprenda sobre ${lesson.title} no módulo ${lesson.step} da trilha FinEdu.`,
+    title: `Aula: Módulo ${moduloId?.toUpperCase?.() || ""} — FinEdu`,
+    description: `Aprenda sobre finanças no módulo ${moduloId} da trilha FinEdu.`,
   };
 }
 
 export default async function ConteudoPage({ params }) {
   const { moduloId } = await params;
-  const lesson = lessonsData[moduloId];
 
-  if (!lesson) {
-    notFound();
-  }
-
-  const moduleIndex = modulesData.findIndex((m) => m.id === moduloId);
-  const stepNumber = moduleIndex !== -1 ? moduleIndex + 1 : 1;
-
-  return (
-    <article className="focus-page">
-      <FocusHeader
-        step={stepNumber}
-        totalSteps={modulesData.length}
-        closeHref="/trilhas"
-      />
-
-      <LessonArticle lesson={lesson} />
-
-      <FocusFooter quizHref={`/quiz/${moduloId}`} />
-    </article>
-  );
+  return <ConteudoClient moduloId={moduloId} />;
 }

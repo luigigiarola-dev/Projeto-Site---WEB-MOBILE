@@ -1,7 +1,6 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import modulesData from "@/data/modules.json";
 import { getUserLevel, getProgressPercentage } from "@/lib/calculations";
 
 const STORAGE_KEY = "finanedu-progress-v1";
@@ -17,11 +16,25 @@ const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
   const [state, setState] = useState(defaultState);
+  const [modules, setModules] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [isToastVisible, setIsToastVisible] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isGoalOpen, setIsGoalOpen] = useState(false);
+
+  // Carrega lista de módulos da API
+  useEffect(() => {
+    fetch("/api/modules")
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao carregar módulos");
+        return res.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data)) setModules(data);
+      })
+      .catch((err) => console.error("Erro no fetch de modules:", err));
+  }, []);
 
   // Carrega estado do localStorage na montagem
   useEffect(() => {
@@ -94,8 +107,8 @@ export function AppProvider({ children }) {
       const newCompleted = passed && !alreadyDone
         ? [...prev.completed, moduleId].sort((a, b) => {
             return (
-              modulesData.findIndex((m) => m.id === a) -
-              modulesData.findIndex((m) => m.id === b)
+              modules.findIndex((m) => m.id === a) -
+              modules.findIndex((m) => m.id === b)
             );
           })
         : prev.completed;
@@ -116,7 +129,7 @@ export function AppProvider({ children }) {
     });
   };
 
-  const totalModules = modulesData.length;
+  const totalModules = modules.length || 6;
   const progressPercent = getProgressPercentage(state.completed.length, totalModules);
   const userLevel = getUserLevel(state.completed.length, totalModules);
 
@@ -124,6 +137,7 @@ export function AppProvider({ children }) {
     <AppContext.Provider
       value={{
         ...state,
+        modules,
         isLoaded,
         progressPercent,
         userLevel,

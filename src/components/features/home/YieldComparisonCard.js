@@ -3,12 +3,30 @@
 import { useMemo, useState, useEffect } from "react";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
-import marketRates from "@/data/marketRates.json";
 
 const DEFAULT_MONTHS = ["Nov", "Dez", "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out"];
 
+const FALLBACK_RATES = {
+  cdiMonthly: 0.009,
+  selicMonthly: 0.009,
+  savingsMonthly: 0.005,
+};
+
 export default function YieldComparisonCard() {
   const [months, setMonths] = useState(DEFAULT_MONTHS);
+  const [rates, setRates] = useState(FALLBACK_RATES);
+
+  useEffect(() => {
+    fetch("/api/market-rates")
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao carregar taxas");
+        return res.json();
+      })
+      .then((data) => {
+        if (data) setRates(data);
+      })
+      .catch((err) => console.error("Erro no fetch de market-rates:", err));
+  }, []);
 
   useEffect(() => {
     try {
@@ -29,6 +47,7 @@ export default function YieldComparisonCard() {
 
   // Gera dados comparativos dos últimos 12 meses para R$ 1.000 aplicados
   const { series, maxVal, minVal } = useMemo(() => {
+    const activeRates = rates || FALLBACK_RATES;
     const monthsBack = 12;
     const fiiFluctuations = [
       0.018, -0.006, 0.024, 0.004, 0.015, -0.011,
@@ -48,10 +67,10 @@ export default function YieldComparisonCard() {
     const fiisData = [];
 
     for (let i = 0; i < monthsBack; i++) {
-      cdb *= 1 + marketRates.cdiMonthly + 0.0015 + (i % 3) * 0.0004;
-      cdi *= 1 + marketRates.cdiMonthly;
-      selic *= 1 + marketRates.selicMonthly;
-      savings *= 1 + marketRates.savingsMonthly;
+      cdb *= 1 + (activeRates.cdiMonthly || 0.009) + 0.0015 + (i % 3) * 0.0004;
+      cdi *= 1 + (activeRates.cdiMonthly || 0.009);
+      selic *= 1 + (activeRates.selicMonthly || 0.009);
+      savings *= 1 + (activeRates.savingsMonthly || 0.005);
       fiis *= 1 + (fiiFluctuations[i] || 0.01);
 
       cdbData.push(Math.round(cdb));

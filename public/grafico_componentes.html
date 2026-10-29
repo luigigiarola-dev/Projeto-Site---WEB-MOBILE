@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráfico de Sequência de Componentes — FinEdu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f111a;
+      --card-bg: #181b29;
+      --card-border: #282d45;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --purple: #818cf8;
+      --purple-glow: rgba(129, 140, 248, 0.25);
+      --green: #34d399;
+      --green-glow: rgba(52, 211, 153, 0.25);
+      --amber: #fbbf24;
+      --amber-glow: rgba(251, 191, 36, 0.25);
+      --blue: #38bdf8;
+      --blue-glow: rgba(56, 189, 248, 0.25);
+      --pink: #f472b6;
+      --pink-glow: rgba(244, 114, 182, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'DM Sans', sans-serif;
+      padding: 32px 20px 60px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.18);
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 40%, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .chart-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      margin-bottom: 40px;
+      overflow-x: auto;
+    }
+
+    .mermaid {
+      display: flex;
+      justify-content: center;
+    }
+
+    .grid-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .info-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .info-box.api {
+      border-top: 4px solid var(--pink);
+    }
+
+    .info-box.simulador {
+      border-top: 4px solid var(--green);
+    }
+
+    .info-box.quiz {
+      border-top: 4px solid var(--amber);
+    }
+
+    .info-box.conteudo {
+      border-top: 4px solid var(--blue);
+    }
+
+    .info-box.shell {
+      border-top: 4px solid var(--purple);
+    }
+
+    .info-box h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 19px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-box ol {
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    .info-box li {
+      margin-bottom: 8px;
+    }
+
+    .info-box strong {
+      color: var(--text-main);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <span class="badge">Arquitetura FinEdu Next.js 16</span>
+      <h1>Sequência de Chamada de Componentes & API REST</h1>
+      <p class="subtitle">Mapeamento visual do fluxo de renderização, ciclo de vida dos componentes e consumo estrito de dados via <code>fetch()</code> nos endpoints REST.</p>
+    </header>
+
+    <div class="chart-card">
+      <div class="mermaid">
+flowchart TD
+    %% 0. CAMADA DE API REST
+    subgraph API ["0. Camada de API REST (src/app/api/)"]
+        API_MOD["GET /api/modules"]
+        API_RATES["GET /api/market-rates"]
+        API_QUIZ["GET /api/quizzes/[moduloId]"]
+        API_LESSON["GET /api/lessons/[moduloId]"]
+    end
+
+    %% 1. LAYOUT SHELL
+    subgraph LAYOUT ["1. Shell Global da Aplicação (layout.js)"]
+        A["RootLayout (src/app/layout.js)"] --> B["AppProvider (src/context/AppContext.js)"]
+        B -.->|"fetch()"| API_MOD
+        B --> C["AppHeader (Logo, links e avatar)"]
+        B --> D["Navegação de Rota (&lt;main&gt;)"]
+        B --> E["MobileNav (Barra inferior móvel)"]
+        B --> F["AppFooter (Rodapé institucional)"]
+        B --> G["Modais em Standby (ProfileModal / GoalModal / Toast)"]
+    end
+
+    %% DIRECIONAMENTO DE ROTAS
+    D -->|"Acesso a /simulador"| SIM_PAGE["SimuladorPage (src/app/simulador/page.js)"]
+    D -->|"Acesso a /quiz/[moduloId]"| QUIZ_SERVER["QuizPage Server (src/app/quiz/[moduloId]/page.js)"]
+    D -->|"Acesso a /conteudo/[moduloId]"| CONT_SERVER["ConteudoPage Server (src/app/conteudo/[moduloId]/page.js)"]
+
+    %% 2. SIMULADOR
+    subgraph SIMULADOR ["2. Sequência do Simulador (/simulador)"]
+        SIM_PAGE -.->|"fetch()"| API_RATES
+        SIM_PAGE --> SIM_HEAD["SimulatorHeader"]
+        SIM_HEAD --> SIM_CARD_H["Card (UI)"]
+
+        SIM_PAGE --> SIM_FORM["SimulationForm (Inputs numéricos)"]
+        SIM_FORM -->|"Dispara onChangeParam + rates"| SIM_CALC["calculateSimulation(params, rates) (src/lib/calculations.js)"]
+        SIM_FORM --> SIM_BTN["Button ('SIMULAR AGORA')"]
+
+        SIM_CALC -->|"Atualiza pontos de dados"| SIM_RES["SimulationResultCard"]
+        SIM_RES --> SIM_TOTAL["output#totalResult (Valor estimado)"]
+        SIM_RES --> SIM_CHART["ProjectionChart (Curvas SVG em tempo real)"]
+        SIM_RES --> SIM_STATS["StatsGrid (Total investido, rendimento e taxa mensal)"]
+        SIM_RES --> SIM_EXP["CompoundInterestExplainer (Accordion &lt;details&gt;)"]
+    end
+
+    %% 3. QUIZ
+    subgraph QUIZ ["3. Sequência do Quiz (/quiz/[moduloId])"]
+        QUIZ_SERVER -->|"moduloId"| QUIZ_CLIENT["QuizClient (src/components/features/quiz/QuizClient.js)"]
+        QUIZ_CLIENT -.->|"fetch()"| API_QUIZ
+        QUIZ_CLIENT -.->|"fetch()"| API_MOD
+        
+        QUIZ_CLIENT --> COND{"isFinished?"}
+
+        %% Fluxo de Pergunta Ativa
+        COND -->|"Não (Perguntas Ativas)"| Q_HEAD["QuizHeader (Botão fechar e posição 1/3)"]
+        Q_HEAD --> Q_BAR["ProgressBar (UI)"]
+        
+        QUIZ_CLIENT --> Q_CRUMB["QuizBreadcrumb (Fase > Módulo > Quiz)"]
+        QUIZ_CLIENT --> Q_STEP["QuizStepper (Bolinhas de progresso)"]
+        
+        QUIZ_CLIENT --> Q_QUEST["QuizQuestion (Card do enunciado)"]
+        Q_QUEST --> Q_GRP["AnswerGroup (Lista de opções)"]
+        Q_GRP --> Q_OPT["AnswerOptionButton (A, B, C, D reativos: Verde / Vermelho)"]
+
+        QUIZ_CLIENT --> Q_FEED["QuizFeedbackPanel (Faixa com explicação da resposta)"]
+        QUIZ_CLIENT --> Q_NEXT["Button ('Próxima' ou 'Ver resultado')"]
+        
+        Q_NEXT -->|"Ao responder 3ª pergunta"| Q_FINISH["completeModule(moduloId, score) em AppContext"]
+        Q_FINISH -->|"Atualiza localStorage e libera próxima aula"| COND
+
+        %% Fluxo de Conclusão
+        COND -->|"Sim (Concluído)"| Q_REW["QuizRewardCard (Tela de Celebração)"]
+        Q_REW --> Q_CARD_R["Card (UI)"]
+        Q_REW --> Q_SCORE["scoreRate ('3 de 3 acertos')"]
+        Q_REW --> Q_ACTION["Button ('Voltar à trilha' ou 'Tentar novamente')"]
+    end
+
+    %% 4. CONTEUDO
+    subgraph CONTEUDO ["4. Sequência de Conteúdo / Aula (/conteudo/[moduloId])"]
+        CONT_SERVER -->|"moduloId"| CONT_CLIENT["ConteudoClient (src/components/features/conteudo/ConteudoClient.js)"]
+        CONT_CLIENT -.->|"fetch()"| API_LESSON
+        CONT_CLIENT -.->|"fetch()"| API_MOD
+        CONT_CLIENT --> C_HEAD["FocusHeader (Passo X de Y)"]
+        CONT_CLIENT --> C_ART["LessonArticle (Texto e destaques conceituais)"]
+        CONT_CLIENT --> C_FOOT["FocusFooter (Botão 'Continuar para o quiz')"]
+    end
+
+    %% ESTILOS
+    classDef layout fill:#282b45,stroke:#818cf8,stroke-width:2px,color:#fff;
+    classDef sim fill:#16362d,stroke:#34d399,stroke-width:2px,color:#fff;
+    classDef quiz fill:#3b2d15,stroke:#fbbf24,stroke-width:2px,color:#fff;
+    classDef cont fill:#143447,stroke:#38bdf8,stroke-width:2px,color:#fff;
+    classDef api fill:#3b1c3b,stroke:#f472b6,stroke-width:2px,color:#fff;
+    classDef action fill:#4338ca,stroke:#a5b4fc,stroke-width:2px,color:#fff;
+
+    class A,B,C,D,E,F,G layout;
+    class SIM_PAGE,SIM_HEAD,SIM_CARD_H,SIM_FORM,SIM_CALC,SIM_RES,SIM_TOTAL,SIM_CHART,SIM_STATS,SIM_EXP sim;
+    class QUIZ_SERVER,QUIZ_CLIENT,Q_HEAD,Q_CRUMB,Q_STEP,Q_QUEST,Q_GRP,Q_OPT,Q_FEED,Q_REW,Q_CARD_R,Q_SCORE quiz;
+    class CONT_SERVER,CONT_CLIENT,C_HEAD,C_ART,C_FOOT cont;
+    class API_MOD,API_RATES,API_QUIZ,API_LESSON api;
+    class SIM_BTN,Q_NEXT,Q_ACTION,Q_BAR,Q_FINISH action;
+      </div>
+    </div>
+
+    <div class="grid-info">
+      <div class="info-box api">
+        <h2>🚀 0. Camada de API REST</h2>
+        <ol>
+          <li><strong>Isolamento:</strong> JSONs em <code>src/data/</code> não são mais importados por telas.</li>
+          <li><strong>Endpoints:</strong> <code>/api/modules</code>, <code>/api/lessons</code>, <code>/api/quizzes</code> e <code>/api/market-rates</code>.</li>
+          <li><strong>Padrão:</strong> Retornam <code>Response.json()</code> compatível com chamadas HTTP assíncronas via <code>fetch()</code>.</li>
+        </ol>
+      </div>
+
+      <div class="info-box shell">
+        <h2>🌐 1. Shell Global</h2>
+        <ol>
+          <li><strong>RootLayout:</strong> Carrega fontes e folha global CSS.</li>
+          <li><strong>AppProvider:</strong> Dispara <code>fetch('/api/modules')</code> e sincroniza progresso com <code>localStorage</code>.</li>
+          <li><strong>Navegação:</strong> <code>AppHeader</code> e <code>MobileNav</code> gerenciam rotas ativas.</li>
+        </ol>
+      </div>
+
+      <div class="info-box simulador">
+        <h2>📈 2. Simulador</h2>
+        <ol>
+          <li><strong>SimuladorPage:</strong> Busca taxas via <code>fetch('/api/market-rates')</code>.</li>
+          <li><strong>calculateSimulation:</strong> Função matemática pura que recebe <code>rates</code> dinâmicas.</li>
+          <li><strong>ProjectionChart:</strong> Desenha as curvas vetoriais em tempo real no SVG.</li>
+        </ol>
+      </div>
+
+      <div class="info-box quiz">
+        <h2>🎯 3. Quiz Gamificado</h2>
+        <ol>
+          <li><strong>QuizClient:</strong> Executa <code>fetch('/api/quizzes/[moduloId]')</code> e <code>fetch('/api/modules')</code> em paralelo.</li>
+          <li><strong>Máquina de Estados:</strong> 3 perguntas, botões reativos verde/vermelho e feedback imediato.</li>
+          <li><strong>completeModule:</strong> Grava no Context e atualiza a trilha.</li>
+        </ol>
+      </div>
+
+      <div class="info-box conteudo">
+        <h2>📖 4. Aulas & Conteúdo</h2>
+        <ol>
+          <li><strong>ConteudoClient:</strong> Busca o artigo via <code>fetch('/api/lessons/[moduloId]')</code>.</li>
+          <li><strong>LessonArticle:</strong> Renderiza parágrafos pedagógicos e destaques conceituais.</li>
+          <li><strong>FocusFooter:</strong> Conduz o estudante diretamente ao quiz do módulo.</li>
+        </ol>
+      </div>
+    </div>
+
+    <footer>
+      FinEdu · Documentação Técnica de Engenharia de Software e Componentes React Next.js 16
+    </footer>
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      securityLevel: 'loose',
+      fontFamily: 'DM Sans, sans-serif'
+    });
+  </script>
+</body>
+</html>

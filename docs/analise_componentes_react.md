@@ -32,11 +32,11 @@ As cinco páginas HTML do projeto original convertem-se em cinco rotas da aplica
 
 | Página atual | Rota no Next.js | Tipo de componente | Responsabilidade |
 | :--- | :--- | :--- | :--- |
-| `index.html` | `/` | Servidor, com ilhas de cliente | Página inicial, jornada, gráfico comparativo de 12 meses e metas pessoais |
-| `pages/trilhas.html` | `/trilhas` | Servidor + cliente | Trilha pedagógica, filtros por fase e mapa interativo de módulos |
-| `pages/conteudo.html` | `/conteudo/[moduloId]` | Servidor | Artigos educativos aprofundados carregados dinamicamente por módulo |
-| `pages/quiz.html` | `/quiz/[moduloId]` | Cliente | Questionário interativo, seleção de alternativas, feedback e pontuação |
-| `pages/simulador.html` | `/simulador` | Cliente | Calculadora em tempo real de juros compostos com gráfico de projeção |
+| `index.html` | `/` | Servidor, com ilhas de cliente | Página inicial, jornada, gráfico comparativo de 12 meses (`fetch /api/market-rates`) e metas pessoais |
+| `pages/trilhas.html` | `/trilhas` | Servidor + cliente | Trilha pedagógica, filtros por fase e mapa interativo de módulos (`fetch /api/modules`) |
+| `pages/conteudo.html` | `/conteudo/[moduloId]` | Servidor + ConteudoClient | Artigos educativos carregados dinamicamente via `fetch /api/lessons/[moduloId]` |
+| `pages/quiz.html` | `/quiz/[moduloId]` | Cliente (QuizClient) | Questionário interativo carregado via `fetch /api/quizzes/[moduloId]`, seleção, feedback e pontuação |
+| `pages/simulador.html` | `/simulador` | Cliente | Calculadora em tempo real de juros compostos integrada com `fetch /api/market-rates` e projeção SVG |
 
 ---
 
@@ -153,29 +153,31 @@ Para evitar passagem excessiva de propriedades entre componentes (*prop drilling
 
 ---
 
-## 10. Consumo de JSON: Três Abordagens
+## 10. Consumo Estrito de Dados via API e `fetch()`
 
-Cada tipo de conteúdo possui uma estratégia recomendada: API interna para o quiz e leitura direta no servidor para trilhas e artigos.
+A aplicação não importa arquivos JSON locais nas telas. Todos os dados são expostos por **Route Handlers** no Next.js (`src/app/api/`) e consumidos estritamente via `fetch()` assíncrono no cliente:
 
-| Abordagem | Uso recomendado | Vantagem principal |
+| Funcionalidade | Endpoint Consumido | Componente Consumidor |
 | :--- | :--- | :--- |
-| **A) Route Handlers (BFF)** | Quiz | O gabarito fica protegido no servidor: o cliente recebe só enunciado e opções, e uma rota dedicada valida a resposta |
-| **B) Leitura direta em Server Components** | Trilhas e artigos | Sem requisição HTTP interna adicional, garantindo máxima performance e SEO |
-| **C) CDN ou repositório externo (S3, GitHub Pages, R2)** | Conteúdo frequentemente atualizável | Permite atualizar perguntas e textos sem a necessidade de um novo deploy |
+| **Módulos e Fases** | `/api/modules` | `AppContext.js`, `TrailMap.js`, `QuizClient.js`, `ConteudoClient.js` |
+| **Aulas e Artigos** | `/api/lessons/[moduloId]` | `ConteudoClient.js` |
+| **Questionários** | `/api/quizzes/[moduloId]` | `QuizClient.js` |
+| **Taxas do Mercado** | `/api/market-rates` | `YieldComparisonCard.js`, `SimuladorPage` |
 
 ---
 
-## 11. Endpoints Propostos da API
+## 11. Endpoints Implementados da API (`src/app/api/`)
 
-São cinco contratos conceituais de dados; as perguntas entregues ao navegador **nunca** expõem a resposta correta nem o gabarito.
+A camada de API foi padronizada retornando objetos e coleções JSON através de respostas HTTP nativas do Next.js:
 
-| Endpoint | O que retorna | Uso na interface |
-| :--- | :--- | :--- |
-| **Trilhas e módulos** | Fases, títulos, descrições, ícones e identificadores | `/trilhas` e atalhos rápidos da tela inicial |
-| **Conteúdo por módulo** | Blocos de texto detalhados e lições do módulo solicitado | `/conteudo/[moduloId]` |
-| **Perguntas do quiz** | Enunciado e alternativas, **sem** resposta correta nem dicas de gabarito | `/quiz/[moduloId]` |
-| **Validação do quiz** | Resultado (acerto/erro), justificativa pedagógica e pontuação | A cada resposta ou no envio final da avaliação |
-| **Parâmetros de mercado** | Taxa básica de juros, rendimento da poupança e % sugerido para reserva | Valores padrão e balizadores do simulador |
+| Endpoint | Método | O que retorna | Uso na interface |
+| :--- | :---: | :--- | :--- |
+| **`/api/modules`** | `GET` | Array com os 6 módulos, fases, títulos, ícones e descrições | `/trilhas`, navegação e totalizador de progresso no contexto |
+| **`/api/lessons`** | `GET` | Todas as lições didáticas ou lição específica via query param `?id=m1` | Consulta geral de conteúdo |
+| **`/api/lessons/[moduloId]`** | `GET` | Título da aula, parágrafos formatados e destaques conceituais da lição | Leitor imersivo em `/conteudo/[moduloId]` |
+| **`/api/quizzes`** | `GET` | Banco completo de perguntas agrupadas por módulo | Consulta geral de avaliações |
+| **`/api/quizzes/[moduloId]`** | `GET` | Perguntas, alternativas e dicas pedagógicas do módulo ativo | Avaliação rápida interativa em `/quiz/[moduloId]` |
+| **`/api/market-rates`** | `GET` | Taxas mensais e anuais de CDI, Selic e Poupança | Projeções do simulador e comparativo dos últimos 12 meses |
 
 ---
 

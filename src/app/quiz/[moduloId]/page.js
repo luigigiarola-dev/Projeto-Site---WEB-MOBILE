@@ -1,19 +1,20 @@
-import modulesData from "@/data/modules.json";
 import QuizClient from "@/components/features/quiz/QuizClient";
 
 export async function generateStaticParams() {
-  return modulesData.map((m) => ({
-    moduloId: m.id,
-  }));
+  return [
+    { moduloId: "m1" },
+    { moduloId: "m2" },
+    { moduloId: "m3" },
+    { moduloId: "m4" },
+    { moduloId: "m5" },
+    { moduloId: "m6" },
+  ];
 }
 
 export async function generateMetadata({ params }) {
   const { moduloId } = await params;
-  const module = modulesData.find((m) => m.id === moduloId);
-  const title = module ? `Quiz: ${module.title} — FinEdu` : "Quiz — FinEdu";
-
   return {
-    title,
+    title: `Quiz: Módulo ${moduloId?.toUpperCase?.() || ""} — FinEdu`,
     description: "Valide seu aprendizado com um questionário rápido.",
   };
 }

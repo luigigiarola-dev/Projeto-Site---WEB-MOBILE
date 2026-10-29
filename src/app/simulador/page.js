@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useApp } from "@/context/AppContext";
 import { calculateSimulation } from "@/lib/calculations";
 import SimulatorHeader from "@/components/features/simulador/SimulatorHeader";
@@ -9,6 +9,17 @@ import SimulationResultCard from "@/components/features/simulador/SimulationResu
 
 export default function SimuladorPage() {
   const { showToast } = useApp();
+  const [rates, setRates] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/market-rates")
+      .then((res) => {
+        if (!res.ok) throw new Error("Falha ao buscar taxas");
+        return res.json();
+      })
+      .then((data) => setRates(data))
+      .catch((err) => console.error("Erro no fetch de market-rates:", err));
+  }, []);
 
   const [params, setParams] = useState({
     initial: 1000,
@@ -25,8 +36,8 @@ export default function SimuladorPage() {
   };
 
   const simulationResult = useMemo(() => {
-    return calculateSimulation(params);
-  }, [params]);
+    return calculateSimulation(params, rates);
+  }, [params, rates]);
 
   const handleSubmit = () => {
     showToast("Projeção calculada com sucesso!");

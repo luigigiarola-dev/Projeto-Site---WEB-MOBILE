@@ -1,4 +1,10 @@
-import marketRates from "@/data/marketRates.json";
+/**
+ * Taxas de fallback caso a API ainda esteja carregando
+ */
+const DEFAULT_RATES = {
+  cdiMonthly: 0.009,
+  savingsMonthly: 0.005,
+};
 
 /**
  * Formata um valor numérico para o padrão de moeda brasileiro (BRL).
@@ -39,8 +45,13 @@ export function calculateFutureValue(principal, monthlyPayment, monthlyRate, mon
 
 /**
  * Executa a simulação completa para o simulador de investimentos.
+ * Aceita as taxas de mercado obtidas via API (ou usa os valores padrão).
  */
-export function calculateSimulation({ initial = 1000, monthly = 300, annualRate = 11.5, years = 5 }) {
+export function calculateSimulation(
+  { initial = 1000, monthly = 300, annualRate = 11.5, years = 5 },
+  rates = DEFAULT_RATES
+) {
+  const activeRates = rates || DEFAULT_RATES;
   const initVal = Number(initial) || 0;
   const monthVal = Number(monthly) || 0;
   const rateVal = Number(annualRate) || 0;
@@ -53,13 +64,16 @@ export function calculateSimulation({ initial = 1000, monthly = 300, annualRate 
   const dataPoints = [];
   const steps = Math.min(60, totalMonths);
 
+  const cdiMonthly = activeRates.cdiMonthly ?? DEFAULT_RATES.cdiMonthly;
+  const savingsMonthly = activeRates.savingsMonthly ?? DEFAULT_RATES.savingsMonthly;
+
   for (let i = 0; i <= steps; i++) {
     const month = (totalMonths * i) / steps;
     dataPoints.push({
       month,
       userValue: calculateFutureValue(initVal, monthVal, monthlyRate, month),
-      cdiValue: calculateFutureValue(initVal, monthVal, marketRates.cdiMonthly, month),
-      savingsValue: calculateFutureValue(initVal, monthVal, marketRates.savingsMonthly, month),
+      cdiValue: calculateFutureValue(initVal, monthVal, cdiMonthly, month),
+      savingsValue: calculateFutureValue(initVal, monthVal, savingsMonthly, month),
     });
   }
 

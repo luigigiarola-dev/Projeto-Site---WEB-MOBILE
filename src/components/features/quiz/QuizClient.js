@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import quizzesData from "@/data/quizzes.json";
-import modulesData from "@/data/modules.json";
 import { useApp } from "@/context/AppContext";
 import QuizHeader from "@/components/features/quiz/QuizHeader";
 import QuizBreadcrumb from "@/components/features/quiz/QuizBreadcrumb";
@@ -17,10 +15,9 @@ export default function QuizClient({ moduloId }) {
   const router = useRouter();
   const { completeModule } = useApp();
 
-  const module = modulesData.find((m) => m.id === moduloId) || modulesData[0];
-  const allQuestions = quizzesData[moduloId] || quizzesData.m1;
-
+  const [currentModule, setCurrentModule] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
@@ -28,22 +25,51 @@ export default function QuizClient({ moduloId }) {
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
-    const selected = allQuestions.slice(0, 3);
-    setQuestions(selected);
-    setCurrentIndex(0);
-    setSelectedIndex(null);
-    setIsChecked(false);
-    setCorrectCount(0);
-    setIsFinished(false);
+    setLoading(true);
+    Promise.all([
+      fetch(`/api/quizzes/${moduloId}`).then((r) => {
+        if (!r.ok) throw new Error("Erro ao buscar dados do quiz");
+        return r.json();
+      }),
+      fetch("/api/modules").then((r) => {
+        if (!r.ok) throw new Error("Erro ao buscar módulos");
+        return r.json();
+      }),
+    ])
+      .then(([quizData, modulesList]) => {
+        if (Array.isArray(quizData)) {
+          setQuestions(quizData.slice(0, 3));
+        }
+        if (Array.isArray(modulesList)) {
+          const mod = modulesList.find((m) => m.id === moduloId) || modulesList[0];
+          setCurrentModule(mod);
+        }
+        setCurrentIndex(0);
+        setSelectedIndex(null);
+        setIsChecked(false);
+        setCorrectCount(0);
+        setIsFinished(false);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Erro no fetch do quiz:", err);
+        setLoading(false);
+      });
   }, [moduloId]);
 
-  if (questions.length === 0) {
+  if (loading || questions.length === 0) {
     return (
       <article className="focus-page quiz-shell">
         <p>Carregando quiz...</p>
       </article>
     );
   }
+
+  const module = currentModule || {
+    phase: 1,
+    phaseName: "Fundamentos",
+    title: "Quiz",
+  };
 
   const currentQ = questions[currentIndex];
 

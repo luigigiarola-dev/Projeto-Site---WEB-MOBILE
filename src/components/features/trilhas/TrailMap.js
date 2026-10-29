@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useApp } from "@/context/AppContext";
-import modulesData from "@/data/modules.json";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import PhaseFilterBar from "./PhaseFilterBar";
@@ -10,9 +9,26 @@ import TrailNodeCard from "./TrailNodeCard";
 
 export default function TrailMap() {
   const [activePhase, setActivePhase] = useState("all");
-  const { completed } = useApp();
+  const { completed, modules: contextModules } = useApp();
+  const [modules, setModules] = useState(contextModules || []);
 
-  const filteredModules = modulesData.filter((m) => {
+  useEffect(() => {
+    if (contextModules && contextModules.length > 0) {
+      setModules(contextModules);
+      return;
+    }
+    fetch("/api/modules")
+      .then((res) => {
+        if (!res.ok) throw new Error("Erro ao carregar módulos");
+        return res.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data)) setModules(data);
+      })
+      .catch((err) => console.error("Erro no fetch de modules:", err));
+  }, [contextModules]);
+
+  const filteredModules = modules.filter((m) => {
     return activePhase === "all" || m.phase === Number(activePhase);
   });
 
@@ -32,7 +48,7 @@ export default function TrailMap() {
 
           <ol className="path-map" aria-label="Mapa de módulos">
             {filteredModules.map((m) => {
-              const originalIndex = modulesData.findIndex((mod) => mod.id === m.id);
+              const originalIndex = modules.findIndex((mod) => mod.id === m.id);
               const isCompleted = completed.includes(m.id);
               const isCurrent = originalIndex === completed.length;
               const isLocked = originalIndex > completed.length;
